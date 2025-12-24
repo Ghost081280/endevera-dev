@@ -1,30 +1,85 @@
 /* ============================================
    ENDEVERA COMPONENT LOADER
-   Dynamically loads HTML components into pages
+   Dynamically loads HTML components and their CSS
    ============================================ */
 
 (function() {
     'use strict';
 
-    // Component configuration
+    // Component configuration with CSS files
     const components = [
-        { name: 'scroll-progress', path: 'frontend/components/scroll-progress.html', target: 'body', position: 'afterbegin' },
-        { name: 'nav', path: 'frontend/components/nav.html', target: 'body', position: 'afterbegin' },
-        { name: 'footer', path: 'frontend/components/footer.html', target: 'body', position: 'beforeend' },
-        { name: 'chatbot', path: 'frontend/components/chatbot/chatbot.html', target: 'body', position: 'beforeend' },
-        { name: 'back-to-top', path: 'frontend/components/back-to-top.html', target: 'body', position: 'beforeend' },
-        { name: 'cookie-banner', path: 'frontend/components/cookie-banner.html', target: 'body', position: 'beforeend' }
+        { 
+            name: 'scroll-progress', 
+            html: 'frontend/components/scroll-progress.html',
+            css: 'frontend/components/scroll-progress.css',
+            target: 'body', 
+            position: 'afterbegin' 
+        },
+        { 
+            name: 'nav', 
+            html: 'frontend/components/nav.html',
+            css: 'frontend/components/nav.css',
+            target: 'body', 
+            position: 'afterbegin' 
+        },
+        { 
+            name: 'footer', 
+            html: 'frontend/components/footer.html',
+            css: 'frontend/components/footer.css',
+            target: 'body', 
+            position: 'beforeend' 
+        },
+        { 
+            name: 'chatbot', 
+            html: 'frontend/components/chatbot/chatbot.html',
+            css: null, // CSS already loaded in index.html
+            target: 'body', 
+            position: 'beforeend' 
+        },
+        { 
+            name: 'back-to-top', 
+            html: 'frontend/components/back-to-top.html',
+            css: 'frontend/components/back-to-top.css',
+            target: 'body', 
+            position: 'beforeend' 
+        },
+        { 
+            name: 'cookie-banner', 
+            html: 'frontend/components/cookie-banner.html',
+            css: 'frontend/components/cookie-banner.css',
+            target: 'body', 
+            position: 'beforeend' 
+        }
     ];
 
     // Track loaded components
     let loadedCount = 0;
     const totalComponents = components.length;
 
+    // Load CSS file
+    function loadCSS(href) {
+        return new Promise((resolve, reject) => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            link.onload = () => resolve();
+            link.onerror = () => reject(new Error(`Failed to load CSS: ${href}`));
+            document.head.appendChild(link);
+        });
+    }
+
     // Load all components
     async function loadComponents() {
         for (const component of components) {
             try {
-                const response = await fetch(component.path);
+                // Load CSS first if it exists
+                if (component.css) {
+                    await loadCSS(component.css);
+                    console.log(`✓ Loaded CSS: ${component.name}`);
+                }
+
+                // Then load HTML
+                const response = await fetch(component.html);
                 if (!response.ok) {
                     throw new Error(`Failed to load ${component.name}: ${response.status}`);
                 }
