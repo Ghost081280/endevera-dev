@@ -9,7 +9,10 @@
     // Component configuration
     const components = [
         { name: 'scroll-progress', path: 'frontend/components/scroll-progress.html', target: 'body', position: 'afterbegin' },
-        { name: 'nav', path: 'frontend/components/nav.html', target: 'body', position: 'afterbegin' }
+        { name: 'nav', path: 'frontend/components/nav.html', target: 'body', position: 'afterbegin' },
+        { name: 'footer', path: 'frontend/components/footer.html', target: 'body', position: 'beforeend' },
+        { name: 'back-to-top', path: 'frontend/components/back-to-top.html', target: 'body', position: 'beforeend' },
+        { name: 'cookie-banner', path: 'frontend/components/cookie-banner.html', target: 'body', position: 'beforeend' }
     ];
 
     // Track loaded components
