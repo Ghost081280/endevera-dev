@@ -5,24 +5,25 @@
 
 /* ROOT VARIABLES */
 :root {
-    /* Colors */
+    /* Colors - Matching Standalone */
     --color-black: #0a0a0a;
-    --color-charcoal: #1a1a1a;
-    --color-dark-gray: #2a2a2a;
-    --color-medium-gray: #3a3a3a;
-    --color-light-gray: #cccccc;
-    --color-off-white: #e8e8e8;
+    --color-charcoal: #141414;
+    --color-dark-gray: #1a1a1a;
+    --color-medium-gray: #2a2a2a;
+    --color-light-gray: #888;
+    --color-off-white: #f5f5f5;
     --color-white: #ffffff;
     --color-gold: #c9a227;
-    --color-gold-light: #d4b13f;
+    --color-gold-light: #d4b445;
+    --color-gold-dark: #a8871f;
     
     /* Typography */
-    --font-serif: 'Cormorant Garamond', serif;
-    --font-sans: 'DM Sans', sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     
     /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-smooth: 0.3s ease;
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: all 0.2s ease;
 }
 
 /* RESET & BASE STYLES */
@@ -42,6 +43,39 @@ body {
     color: var(--color-white);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+/* Prevent horizontal overflow on all sections */
+section, nav, footer, .hero, .pillars-section {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+    background: var(--color-gold);
+    color: var(--color-black);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-light);
 }
 
 /* TYPOGRAPHY */
