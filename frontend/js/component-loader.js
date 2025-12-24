@@ -6,26 +6,26 @@
 (function() {
     'use strict';
 
-    // Component configuration with CSS files
+    // Component configuration with new folder structure
     const components = [
         { 
             name: 'scroll-progress', 
-            html: 'frontend/components/scroll-progress.html',
-            css: 'frontend/components/scroll-progress.css',
+            html: 'frontend/components/scroll-progress/scroll-progress.html',
+            css: 'frontend/components/scroll-progress/scroll-progress.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'nav', 
-            html: 'frontend/components/nav.html',
-            css: 'frontend/components/nav.css',
+            html: 'frontend/components/nav/nav.html',
+            css: 'frontend/components/nav/nav.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'footer', 
-            html: 'frontend/components/footer.html',
-            css: 'frontend/components/footer.css',
+            html: 'frontend/components/footer/footer.html',
+            css: 'frontend/components/footer/footer.css',
             target: 'body', 
             position: 'beforeend' 
         },
@@ -38,15 +38,15 @@
         },
         { 
             name: 'back-to-top', 
-            html: 'frontend/components/back-to-top.html',
-            css: 'frontend/components/back-to-top.css',
+            html: 'frontend/components/back-to-top/back-to-top.html',
+            css: 'frontend/components/back-to-top/back-to-top.css',
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'cookie-banner', 
-            html: 'frontend/components/cookie-banner.html',
-            css: 'frontend/components/cookie-banner.css',
+            html: 'frontend/components/cookie-banner/cookie-banner.html',
+            css: 'frontend/components/cookie-banner/cookie-banner.css',
             target: 'body', 
             position: 'beforeend' 
         }
