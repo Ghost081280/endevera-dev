@@ -1,0 +1,298 @@
+<!-- ENDEVERA PUBLIC NAVIGATION -->
+<nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">ENDEVERA</a>
+    
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#insights">Insights</a></li>
+    </ul>
+
+    <a href="login.html" class="nav-login">Member Login</a>
+    <a href="#contact" class="nav-cta">Contact Us</a>
+    
+    <div class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+<!-- Mobile Nav Drawer -->
+<nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#insights">Insights</a></li>
+    </ul>
+    <a href="login.html" class="mobile-nav-login">Member Login</a>
+    <a href="#contact" class="mobile-nav-cta">Contact Us</a>
+</nav>
+
+<style>
+/* Navigation Styles */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.nav.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 15px 60px;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+}
+
+.nav-logo {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    text-decoration: none;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 16px;
+    transition: var(--transition-fast);
+}
+
+.nav-logo:hover {
+    color: var(--color-gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    text-decoration: none;
+    position: relative;
+    padding: 8px 0;
+    transition: var(--transition-fast);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-gold);
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--color-gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-black);
+    background: var(--color-gold);
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.nav-cta:hover {
+    background: var(--color-gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+}
+
+.nav-login {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: transparent;
+    padding: 14px 28px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.nav-login:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-white);
+    transition: var(--transition-fast);
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--color-charcoal);
+    z-index: 1001;
+    padding: 100px 40px 40px;
+    transform: translateX(100%);
+    transition: var(--transition-smooth);
+    border-left: 1px solid var(--color-medium-gray);
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+.mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mobile-nav-links a {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 15px 0;
+    display: block;
+    border-bottom: 1px solid var(--color-medium-gray);
+    transition: var(--transition-fast);
+}
+
+.mobile-nav-links a:hover {
+    color: var(--color-gold);
+    padding-left: 10px;
+}
+
+.mobile-nav-cta {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-black);
+    background: var(--color-gold);
+    padding: 18px 28px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: var(--transition-smooth);
+}
+
+.mobile-nav-cta:hover {
+    background: var(--color-gold-light);
+}
+
+.mobile-nav-login {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: transparent;
+    padding: 18px 28px;
+    text-decoration: none;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.mobile-nav-login:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .nav {
+        padding: 20px 30px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-cta,
+    .nav-login {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+}
+</style>
