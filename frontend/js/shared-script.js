@@ -7,9 +7,13 @@
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    initScrollProgress();
     initSmoothScroll();
     initIntersectionObserver();
+});
+
+// Initialize scroll progress after components load
+document.addEventListener('endevera:components-loaded', function() {
+    initScrollProgress();
 });
 
 // ============================================
