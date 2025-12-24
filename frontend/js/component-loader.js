@@ -9,16 +9,16 @@
     // Component configuration with new folder structure
     const components = [
         { 
-            name: 'scroll-progress', 
-            html: 'frontend/components/scroll-progress/scroll-progress.html',
-            css: 'frontend/components/scroll-progress/scroll-progress.css',
+            name: 'nav', 
+            html: 'frontend/components/nav/nav.html',
+            css: 'frontend/components/nav/nav.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
-            name: 'nav', 
-            html: 'frontend/components/nav/nav.html',
-            css: 'frontend/components/nav/nav.css',
+            name: 'scroll-progress', 
+            html: 'frontend/components/scroll-progress/scroll-progress.html',
+            css: 'frontend/components/scroll-progress/scroll-progress.css',
             target: 'body', 
             position: 'afterbegin' 
         },
