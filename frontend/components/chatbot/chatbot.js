@@ -1,17 +1,25 @@
+/* ============================================
+   ENDEVERA CHATBOT COMPONENT
+   AI assistant chatbot functionality
+   ============================================ */
+
 document.addEventListener('endevera:components-loaded', function() {
     initChatbot();
 });
+
 function initChatbot() {
     const chatbotBtn = document.getElementById('chatbotBtn');
-    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatWindow = document.getElementById('chatbotWindow'); // FIXED: renamed from 'window' to 'chatWindow'
     const chatbotClose = document.getElementById('chatbotClose');
     const chatInput = document.getElementById('chatInput');
     const chatSend = document.getElementById('chatSend');
     const chatMessages = document.getElementById('chatMessages');
-    if (!chatbotBtn || !chatbotWindow) return;
+    
+    if (!chatbotBtn || !chatWindow) return;
+    
     function toggleChatbot() {
-        chatbotWindow.classList.toggle('active');
-        if (chatbotWindow.classList.contains('active')) {
+        chatWindow.classList.toggle('active');
+        if (chatWindow.classList.contains('active')) {
             chatInput.focus();
             if (window.innerWidth <= 768) {
                 document.body.style.overflow = 'hidden';
@@ -20,21 +28,27 @@ function initChatbot() {
             document.body.style.overflow = '';
         }
     }
+    
     chatbotBtn.addEventListener('click', toggleChatbot);
+    
     if (chatbotClose) {
         chatbotClose.addEventListener('click', () => {
-            chatbotWindow.classList.remove('active');
+            chatWindow.classList.remove('active');
             document.body.style.overflow = '';
         });
     }
+    
     function sendMessage() {
         const message = chatInput.value.trim();
         if (message) {
+            // Add user message
             const userMsg = document.createElement('div');
             userMsg.className = 'chat-message';
             userMsg.textContent = message;
             chatMessages.appendChild(userMsg);
             chatInput.value = '';
+            
+            // Simulate bot response
             setTimeout(() => {
                 const botMsg = document.createElement('div');
                 botMsg.className = 'chat-message bot';
@@ -42,12 +56,15 @@ function initChatbot() {
                 chatMessages.appendChild(botMsg);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }, 1000);
+            
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
     }
+    
     if (chatSend) {
         chatSend.addEventListener('click', sendMessage);
     }
+    
     if (chatInput) {
         chatInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
