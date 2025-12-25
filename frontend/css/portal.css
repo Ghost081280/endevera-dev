@@ -793,8 +793,9 @@
     margin: 0 auto;
     padding: 0 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 40px;
 }
 
 .portal-footer-text {
@@ -822,7 +823,7 @@
     .portal-footer-content {
         flex-direction: column;
         gap: 20px;
-        text-align: center;
+        align-items: flex-start;
         padding: 0 30px;
     }
 
