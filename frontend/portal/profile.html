@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="/frontend/css/shared-styles.css">
     <link rel="stylesheet" href="/frontend/css/portal.css">
     <link rel="stylesheet" href="/frontend/components/nav-member/nav-member.css">
@@ -22,7 +21,6 @@
                 <p class="portal-subtitle">Manage your account information and settings</p>
             </div>
 
-            <!-- Account Information -->
             <div class="profile-section">
                 <h2 class="profile-section-title">Account Information</h2>
                 <div class="profile-field-group">
@@ -57,7 +55,6 @@
                 </div>
             </div>
 
-            <!-- Location Information -->
             <div class="profile-section">
                 <h2 class="profile-section-title">Location</h2>
                 <div class="profile-field-group">
@@ -72,7 +69,6 @@
                 </div>
             </div>
 
-            <!-- Accreditation Status -->
             <div class="profile-section">
                 <h2 class="profile-section-title">Accreditation</h2>
                 <div class="profile-field">
@@ -81,7 +77,6 @@
                 </div>
             </div>
 
-            <!-- Investment Summary -->
             <div class="profile-section">
                 <h2 class="profile-section-title">Investment Summary</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
@@ -100,23 +95,15 @@
                 </div>
             </div>
 
-            <!-- Account Actions -->
             <div class="profile-section">
                 <h2 class="profile-section-title">Account Actions</h2>
                 <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <button class="btn-secondary" onclick="editProfile()" style="display: inline-block; width: fit-content;">
-                        Edit Profile Information
-                    </button>
-                    <button class="btn-secondary" onclick="changePassword()" style="display: inline-block; width: fit-content;">
-                        Change Password
-                    </button>
-                    <button class="btn-secondary" onclick="contactSupport()" style="display: inline-block; width: fit-content;">
-                        Contact Support
-                    </button>
+                    <button class="btn-secondary" onclick="editProfile()" style="display: inline-block; width: fit-content;">Edit Profile Information</button>
+                    <button class="btn-secondary" onclick="changePassword()" style="display: inline-block; width: fit-content;">Change Password</button>
+                    <button class="btn-secondary" onclick="contactSupport()" style="display: inline-block; width: fit-content;">Contact Support</button>
                 </div>
             </div>
 
-            <!-- Security Notice -->
             <div style="background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); padding: 20px; margin-top: 30px;">
                 <div style="display: flex; gap: 15px; align-items: flex-start;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" style="flex-shrink: 0;">
@@ -138,42 +125,6 @@
     <script src="/frontend/js/mock-data.js"></script>
     <script src="/frontend/js/portal.js"></script>
     <script src="/frontend/components/nav-member/nav-member.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!PortalUtils.checkMemberAuth()) return;
-            loadProfile();
-        });
-
-        function loadProfile() {
-            const userData = PortalUtils.getMemberData();
-
-            // Populate fields
-            document.getElementById('firstName').textContent = userData.firstName || 'N/A';
-            document.getElementById('lastName').textContent = userData.lastName || 'N/A';
-            document.getElementById('email').textContent = userData.email || 'N/A';
-            document.getElementById('phone').textContent = userData.phone || 'N/A';
-            document.getElementById('company').textContent = userData.company || 'N/A';
-            document.getElementById('city').textContent = userData.city || 'N/A';
-            document.getElementById('state').textContent = userData.state || 'N/A';
-            document.getElementById('accreditationStatus').textContent = userData.accreditationStatus || 'N/A';
-            document.getElementById('memberSince').textContent = userData.memberSince ? PortalUtils.formatDate(userData.memberSince) : 'N/A';
-            document.getElementById('investmentTotal').textContent = PortalUtils.formatCurrency(userData.investmentTotal || 0);
-            document.getElementById('activeDeals').textContent = userData.activeDeals || 0;
-            document.getElementById('totalReturns').textContent = PortalUtils.formatCurrency(userData.totalReturns || 0);
-        }
-
-        function editProfile() {
-            alert('Edit Profile\n\nIn production, this would open a form to edit:\n- Contact information\n- Company details\n- Communication preferences');
-        }
-
-        function changePassword() {
-            alert('Change Password\n\nIn production, this would open a secure form to:\n- Verify current password\n- Set new password\n- Confirm new password');
-        }
-
-        function contactSupport() {
-            alert('Contact Support\n\nEmail: support@endevera.com\nPhone: +1 (561) 555-0100\n\nIn production, this would open a support ticket form or live chat.');
-        }
-    </script>
+    <script src="/frontend/js/profile.js"></script>
 </body>
 </html>
