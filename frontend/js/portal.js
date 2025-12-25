@@ -49,7 +49,9 @@ function logoutMember() {
     localStorage.removeItem('endevera_auth');
     localStorage.removeItem('endevera_role');
     localStorage.removeItem('endevera_user');
-    window.location.href = '/endevera-dev/login.html';
+    localStorage.removeItem('endevera_inactivity_timeout'); // Clear inactivity preference
+    // Use replace() to prevent back button from accessing cached pages
+    window.location.replace('/endevera-dev/login.html');
 }
 
 // ============================================
@@ -437,3 +439,157 @@ if (typeof window !== 'undefined') {
         viewDealDetails
     };
 }
+
+// ============================================
+// STYLED MODALS
+// ============================================
+
+// Logout Confirmation Modal
+function showLogoutConfirmation() {
+    const modal = createModal({
+        title: 'Confirm Logout',
+        message: 'Are you sure you want to logout?',
+        buttons: [
+            {
+                text: 'Cancel',
+                style: 'secondary',
+                onClick: () => closeModal()
+            },
+            {
+                text: 'Logout',
+                style: 'primary',
+                onClick: () => {
+                    closeModal();
+                    logoutMember();
+                }
+            }
+        ]
+    });
+    document.body.appendChild(modal);
+}
+
+// Message Detail Modal
+function showMessageDetail(message) {
+    const modal = createModal({
+        title: message.subject,
+        message: message.message,
+        subtitle: `From: ${message.from} • ${message.date}`,
+        wide: true,
+        buttons: [
+            {
+                text: 'Close',
+                style: 'primary',
+                onClick: () => closeModal()
+            }
+        ]
+    });
+    document.body.appendChild(modal);
+}
+
+// Coming Soon Modal
+function showComingSoon(feature) {
+    const modal = createModal({
+        title: 'Coming Soon',
+        message: `${feature} will be available once we launch on our production server. We're working hard to bring you this feature!`,
+        icon: '🚀',
+        buttons: [
+            {
+                text: 'Got it',
+                style: 'primary',
+                onClick: () => closeModal()
+            }
+        ]
+    });
+    document.body.appendChild(modal);
+}
+
+// Generic Modal Creator
+function createModal({ title, message, subtitle, icon, wide, buttons }) {
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay';
+    modalOverlay.id = 'portalModal';
+    
+    const modalWidth = wide ? 'max-width: 600px;' : 'max-width: 450px;';
+    
+    modalOverlay.innerHTML = `
+        <div class="modal-content" style="${modalWidth}">
+            ${icon ? `<div class="modal-icon">${icon}</div>` : ''}
+            <h2 class="modal-title">${title}</h2>
+            ${subtitle ? `<p class="modal-subtitle">${subtitle}</p>` : ''}
+            <p class="modal-message">${message}</p>
+            <div class="modal-buttons">
+                ${buttons.map(btn => `
+                    <button class="modal-btn modal-btn-${btn.style}" data-action="${btn.text}">
+                        ${btn.text}
+                    </button>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    
+    // Add click handlers
+    buttons.forEach(btn => {
+        const buttonEl = modalOverlay.querySelector(`[data-action="${btn.text}"]`);
+        if (buttonEl) {
+            buttonEl.addEventListener('click', btn.onClick);
+        }
+    });
+    
+    // Close on overlay click
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
+    
+    return modalOverlay;
+}
+
+function closeModal() {
+    const modal = document.getElementById('portalModal');
+    if (modal) {
+        modal.classList.add('modal-closing');
+        setTimeout(() => modal.remove(), 300);
+    }
+}
+
+// ============================================
+// AUTO-LOGOUT / INACTIVITY TIMER
+// ============================================
+
+let inactivityTimer;
+let inactivityTimeout = parseInt(localStorage.getItem('endevera_inactivity_timeout')) || 0; // 0 = disabled
+
+function initInactivityTimer() {
+    if (inactivityTimeout === 0) return; // Disabled
+    
+    resetInactivityTimer();
+    
+    // Reset timer on user activity
+    const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+    events.forEach(event => {
+        document.addEventListener(event, resetInactivityTimer, true);
+    });
+}
+
+function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    
+    if (inactivityTimeout > 0) {
+        inactivityTimer = setTimeout(() => {
+            alert('You have been logged out due to inactivity.');
+            logoutMember();
+        }, inactivityTimeout * 60 * 1000); // Convert minutes to milliseconds
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initInactivityTimer();
+});
+
+// Make functions globally available
+window.showLogoutConfirmation = showLogoutConfirmation;
+window.showMessageDetail = showMessageDetail;
+window.showComingSoon = showComingSoon;
+window.closeModal = closeModal;
