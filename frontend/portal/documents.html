@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents | Endevera Member Portal</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='5' y='5' width='90' height='90' fill='none' stroke='%23c9a227' stroke-width='6'/><text x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='500' fill='%23c9a227' text-anchor='middle'>E</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/frontend/css/shared-styles.css">
+    <link rel="stylesheet" href="/frontend/css/portal.css">
+    <link rel="stylesheet" href="/frontend/components/nav-member/nav-member.css">
+</head>
+<body data-page-type="portal">
+
+    <div class="portal-page">
+        <div class="portal-container">
+            <div class="portal-header">
+                <h1 class="portal-title">Document Library</h1>
+                <p class="portal-subtitle">Access prospectuses, reports, and legal documents</p>
+            </div>
+
+            <!-- Category Filters -->
+            <div style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                <button class="category-btn active" data-category="all" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">
+                    All Documents
+                </button>
+                <button class="category-btn" data-category="Deal Documents" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">
+                    Deal Documents
+                </button>
+                <button class="category-btn" data-category="Reports" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">
+                    Reports
+                </button>
+                <button class="category-btn" data-category="Legal" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">
+                    Legal
+                </button>
+                <button class="category-btn" data-category="Resources" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">
+                    Resources
+                </button>
+            </div>
+
+            <div id="documentsContainer"></div>
+        </div>
+    </div>
+
+    <script src="/frontend/js/shared-script.js"></script>
+    <script src="/frontend/js/component-loader-portal.js"></script>
+    <script src="/frontend/js/mock-data.js"></script>
+    <script src="/frontend/js/portal.js"></script>
+    <script src="/frontend/components/nav-member/nav-member.js"></script>
+    
+    <script>
+        let currentCategory = 'all';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!PortalUtils.checkMemberAuth()) return;
+            setupCategoryFilters();
+            loadDocuments();
+        });
+
+        function setupCategoryFilters() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.style.borderColor = 'var(--color-medium-gray)';
+                        b.style.color = 'var(--color-light-gray)';
+                        b.style.background = 'var(--color-dark-gray)';
+                    });
+                    
+                    btn.classList.add('active');
+                    btn.style.borderColor = 'var(--color-gold)';
+                    btn.style.color = 'var(--color-gold)';
+                    btn.style.background = 'rgba(201, 162, 39, 0.1)';
+                    
+                    currentCategory = btn.dataset.category;
+                    loadDocuments();
+                });
+
+                btn.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.borderColor = 'var(--color-gold)';
+                    }
+                });
+
+                btn.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.borderColor = 'var(--color-medium-gray)';
+                    }
+                });
+            });
+
+            // Style active button
+            const activeBtn = document.querySelector('.category-btn.active');
+            if (activeBtn) {
+                activeBtn.style.borderColor = 'var(--color-gold)';
+                activeBtn.style.color = 'var(--color-gold)';
+                activeBtn.style.background = 'rgba(201, 162, 39, 0.1)';
+            }
+        }
+
+        function loadDocuments() {
+            const container = document.getElementById('documentsContainer');
+            if (!container) return;
+
+            PortalUtils.showLoading('documentsContainer');
+
+            setTimeout(() => {
+                let documents = PortalUtils.getDocuments();
+
+                // Filter by category
+                if (currentCategory !== 'all') {
+                    documents = documents.filter(doc => doc.category === currentCategory);
+                }
+
+                // Filter accessible documents (assigned to member or assigned to all)
+                const userData = PortalUtils.getMemberData();
+                documents = documents.filter(doc => 
+                    doc.assignedToAll || 
+                    (doc.assignedMembers && doc.assignedMembers.includes(userData.id))
+                );
+
+                if (documents.length === 0) {
+                    PortalUtils.showEmpty('documentsContainer', 'No Documents Available', 'No documents in this category are available to you at this time.', 'file');
+                    return;
+                }
+
+                container.innerHTML = `<div class="document-list">${documents.map(doc => PortalUtils.renderDocumentItem(doc)).join('')}</div>`;
+            }, 300);
+        }
+
+        // These functions are called from portal.js renderDocumentItem
+        window.viewDocument = function(docId) {
+            const doc = PortalUtils.getDocuments().find(d => d.id === docId);
+            if (doc) {
+                alert(`Viewing: ${doc.displayName || doc.filename}\n\nIn production, this would open a document viewer or download the file.`);
+            }
+        };
+
+        window.downloadDocument = function(docId) {
+            const doc = PortalUtils.getDocuments().find(d => d.id === docId);
+            if (doc) {
+                alert(`Downloading: ${doc.displayName || doc.filename}\nSize: ${PortalUtils.formatFileSize(doc.fileSize)}\n\nIn production, this would trigger an actual download.`);
+            }
+        };
+    </script>
+</body>
+</html>
