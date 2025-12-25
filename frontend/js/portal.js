@@ -17,7 +17,7 @@ function checkMemberAuth() {
     
     // If not authenticated or not a member, redirect to login
     if (!isAuthenticated || userRole !== 'investor') {
-        window.location.href = '/login.html';
+        window.location.href = 'login.html';
         return false;
     }
     
@@ -49,7 +49,7 @@ function logoutMember() {
     localStorage.removeItem('endevera_auth');
     localStorage.removeItem('endevera_role');
     localStorage.removeItem('endevera_user');
-    window.location.href = '/login.html';
+    window.location.href = 'login.html';
 }
 
 // ============================================
