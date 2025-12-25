@@ -506,13 +506,29 @@ function showComingSoon(feature) {
     document.body.appendChild(modal);
 }
 
+// Track modal close timeout to prevent conflicts
+let modalCloseTimeout = null;
+
 // Generic Modal Creator
 function createModal({ title, message, subtitle, icon, iconSvg, wide, buttons }) {
-    // IMMEDIATELY remove any existing modal - don't wait for animation
+    // Clear any pending close timeout
+    if (modalCloseTimeout) {
+        clearTimeout(modalCloseTimeout);
+        modalCloseTimeout = null;
+    }
+    
+    // FORCE immediate cleanup of any existing modal
     const existingModal = document.getElementById('portalModal');
     if (existingModal) {
-        existingModal.style.display = 'none'; // Hide immediately
-        existingModal.remove(); // Remove from DOM
+        // Remove ALL animations and hide immediately
+        existingModal.style.animation = 'none';
+        existingModal.style.transition = 'none';
+        existingModal.style.opacity = '0';
+        existingModal.style.display = 'none';
+        // Force immediate DOM removal
+        if (existingModal.parentNode) {
+            existingModal.parentNode.removeChild(existingModal);
+        }
     }
     
     const modalOverlay = document.createElement('div');
@@ -563,10 +579,11 @@ function closeModal() {
     const modal = document.getElementById('portalModal');
     if (modal && !modal.classList.contains('modal-closing')) {
         modal.classList.add('modal-closing');
-        setTimeout(() => {
+        modalCloseTimeout = setTimeout(() => {
             if (modal.parentNode) {
                 modal.remove();
             }
+            modalCloseTimeout = null;
         }, 300);
     }
 }
