@@ -27,13 +27,38 @@ function loadProfile() {
 }
 
 function editProfile() {
-    alert('Edit Profile\n\nIn production, this would open a form to edit:\n- Contact information\n- Company details\n- Communication preferences');
+    window.showComingSoon('Edit Profile');
 }
 
 function changePassword() {
-    alert('Change Password\n\nIn production, this would open a secure form to:\n- Verify current password\n- Set new password\n- Confirm new password');
+    window.showComingSoon('Change Password');
 }
 
 function contactSupport() {
-    alert('Contact Support\n\nEmail: support@endevera.com\nPhone: +1 (561) 555-0100\n\nIn production, this would open a support ticket form or live chat.');
+    window.showComingSoon('Contact Support');
 }
+
+// Auto-logout timer management
+function updateInactivityTimeout() {
+    const select = document.getElementById('inactivityTimeout');
+    const timeout = parseInt(select.value);
+    localStorage.setItem('endevera_inactivity_timeout', timeout);
+    
+    if (timeout === 0) {
+        alert('Auto-logout disabled. You will remain logged in until you manually log out.');
+    } else {
+        alert(`Auto-logout enabled. You will be logged out after ${timeout} minutes of inactivity.`);
+    }
+    
+    // Reload page to reinitialize timer
+    window.location.reload();
+}
+
+// Load saved timeout preference
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTimeout = localStorage.getItem('endevera_inactivity_timeout') || '0';
+    const select = document.getElementById('inactivityTimeout');
+    if (select) {
+        select.value = savedTimeout;
+    }
+});
