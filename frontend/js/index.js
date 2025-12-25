@@ -46,10 +46,23 @@ function initInvestorModal() {
     if (investorForm) {
         investorForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your application. Our team will review your information and contact you within 48 business hours.');
-            investorModal.classList.remove('active');
-            document.body.style.overflow = '';
-            investorForm.reset();
+            
+            const submitBtn = investorForm.querySelector('[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SUBMITTING...';
+            
+            // Simulate submission delay
+            setTimeout(() => {
+                // Show success message (SAME AS LOGIN PAGE)
+                alert('Application Received!\n\nThank you for your interest in Endevera. Our team will review your application and contact you within 48 business hours.');
+                
+                // Reset form and close modal
+                investorForm.reset();
+                investorModal.classList.remove('active');
+                document.body.style.overflow = '';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SUBMIT APPLICATION';
+            }, 800);
         });
     }
 }
