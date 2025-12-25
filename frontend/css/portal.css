@@ -831,3 +831,190 @@
         gap: 20px;
     }
 }
+
+/* STYLED MODALS */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal-overlay.modal-closing {
+    animation: modalFadeOut 0.3s ease;
+}
+
+.modal-content {
+    background: var(--color-dark-gray);
+    border: 1px solid var(--color-medium-gray);
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 450px;
+    width: 90%;
+    animation: modalSlideIn 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-closing .modal-content {
+    animation: modalSlideOut 0.3s ease;
+}
+
+.modal-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-subtitle {
+    font-size: 12px;
+    color: var(--color-light-gray);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-message {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-light-gray);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: 12px 30px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border-radius: 4px;
+}
+
+.modal-btn-primary {
+    background: var(--color-gold);
+    color: var(--color-black);
+}
+
+.modal-btn-primary:hover {
+    background: var(--color-gold-light);
+}
+
+.modal-btn-secondary {
+    background: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-medium-gray);
+}
+
+.modal-btn-secondary:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+}
+
+/* PROFILE SELECT DROPDOWN */
+.profile-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--color-white);
+    background: var(--color-charcoal);
+    border: 1px solid var(--color-medium-gray);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.profile-select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.profile-select:hover {
+    border-color: var(--color-gold);
+}
+
+.profile-select option {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    padding: 10px;
+}
