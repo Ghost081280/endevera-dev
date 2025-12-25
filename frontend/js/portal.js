@@ -508,10 +508,11 @@ function showComingSoon(feature) {
 
 // Generic Modal Creator
 function createModal({ title, message, subtitle, icon, iconSvg, wide, buttons }) {
-    // Remove any existing modal first to prevent flash
+    // IMMEDIATELY remove any existing modal - don't wait for animation
     const existingModal = document.getElementById('portalModal');
     if (existingModal) {
-        existingModal.remove();
+        existingModal.style.display = 'none'; // Hide immediately
+        existingModal.remove(); // Remove from DOM
     }
     
     const modalOverlay = document.createElement('div');
