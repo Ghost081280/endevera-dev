@@ -115,8 +115,13 @@ function viewMessage(messageId) {
     // Mark as read
     message.read = true;
 
-    // Show message in modal or expand inline
-    alert(`From: ${message.from}\nSubject: ${message.subject}\n\n${message.body}\n\n(In production, this would display in a proper modal or expanded view)`);
+    // Show message in styled modal
+    window.showMessageDetail({
+        subject: message.subject,
+        from: message.from,
+        date: message.date,
+        message: message.body
+    });
 
     // Reload to update read status
     loadMessages();
