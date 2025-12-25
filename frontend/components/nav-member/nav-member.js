@@ -129,14 +129,7 @@ function initMemberNavigation() {
     }
 
     function handleLogout() {
-        if (confirm('Are you sure you want to logout?')) {
-            // Clear authentication
-            localStorage.removeItem('endevera_auth');
-            localStorage.removeItem('endevera_role');
-            localStorage.removeItem('endevera_user');
-            
-            // Redirect to login
-            window.location.href = '/endevera-dev/login.html';
-        }
+        // Show styled confirmation modal instead of browser confirm
+        showLogoutConfirmation();
     }
 }
