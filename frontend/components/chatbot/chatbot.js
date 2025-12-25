@@ -1,4 +1,4 @@
-/* AI CHATBOT - MEMBER PORTAL VERSION */
+/* AI CHATBOT */
 (function() {
     'use strict';
 
@@ -14,12 +14,19 @@
 
         if (!toggle || !window) return;
 
-        // Get user info from localStorage
+        // Check if user is logged in (portal) or public
         const userData = JSON.parse(localStorage.getItem('endevera_user') || '{}');
-        const userName = userData.firstName || 'Member';
+        const isLoggedIn = localStorage.getItem('endevera_auth') === 'true';
+        const userName = userData.firstName || 'there';
 
-        // Show custom welcome message for members
-        addBotMessage(`Welcome back, ${userName}! 👋 I'm your Endevera investment assistant. I can help you with:\n\n• Portfolio insights and performance\n• Investment opportunity details\n• Document access and reports\n• Account questions\n\nHow can I assist you today?`);
+        // Show appropriate welcome message
+        if (isLoggedIn && userName !== 'there') {
+            // Member portal welcome
+            addBotMessage(`Welcome back, ${userName}! 👋 I'm your Endevera investment assistant. I can help you with portfolio insights, investment opportunities, documents, and account questions. How can I assist you today?`);
+        } else {
+            // Public page welcome
+            addBotMessage(`Hello! 👋 I'm your Endevera assistant. I can help you learn about our investment opportunities, answer questions about infrastructure investments, or connect you with our team. How can I help you today?`);
+        }
 
         // Toggle chatbot
         toggle.addEventListener('click', () => {
@@ -57,10 +64,10 @@
             // Show typing indicator
             showTyping();
 
-            // Simulate AI response (replace with actual API call later)
+            // Simulate AI response
             setTimeout(() => {
                 hideTyping();
-                const response = generateResponse(message);
+                const response = generateResponse(message, isLoggedIn);
                 addBotMessage(response);
             }, 1500);
         }
@@ -134,31 +141,41 @@
         if (typing) typing.remove();
     }
 
-    function generateResponse(message) {
+    function generateResponse(message, isLoggedIn) {
         const msg = message.toLowerCase();
 
-        // Portfolio-related
-        if (msg.includes('portfolio') || msg.includes('performance') || msg.includes('return')) {
-            return "Your portfolio is currently showing strong performance. You can view detailed analytics on your Dashboard. Would you like me to highlight any specific investments?";
-        }
-        
-        // Investment opportunities
-        if (msg.includes('opportunity') || msg.includes('opportunities') || msg.includes('invest') || msg.includes('deal')) {
-            return "We have several active investment opportunities available. You can explore them on the Investment Opportunities page. Would you like me to recommend opportunities based on your investment profile?";
-        }
-        
-        // Documents
-        if (msg.includes('document') || msg.includes('report') || msg.includes('prospectus')) {
-            return "All your investment documents, reports, and prospectuses are available in the Documents section. Is there a specific document you're looking for?";
-        }
-        
-        // Account/profile
-        if (msg.includes('account') || msg.includes('profile') || msg.includes('settings')) {
-            return "You can manage your account settings and view your investor profile in the Profile section. Need help with anything specific?";
+        if (isLoggedIn) {
+            // Member portal responses
+            if (msg.includes('portfolio') || msg.includes('performance') || msg.includes('return')) {
+                return "Your portfolio is performing well. You can view detailed analytics on your Dashboard. Would you like me to highlight any specific investments?";
+            }
+            if (msg.includes('opportunity') || msg.includes('opportunities') || msg.includes('invest') || msg.includes('deal')) {
+                return "We have several active investment opportunities available. Check the Investment Opportunities page to explore them. Would you like recommendations based on your profile?";
+            }
+            if (msg.includes('document') || msg.includes('report') || msg.includes('prospectus')) {
+                return "All your investment documents and reports are in the Documents section. Is there a specific document you're looking for?";
+            }
+            if (msg.includes('account') || msg.includes('profile') || msg.includes('settings')) {
+                return "You can manage your account in the Profile section. Need help with anything specific?";
+            }
+        } else {
+            // Public page responses
+            if (msg.includes('invest') || msg.includes('opportunity') || msg.includes('opportunities')) {
+                return "Endevera offers exclusive infrastructure investment opportunities in renewable energy, transportation, and utilities. Would you like to learn more about becoming an investor?";
+            }
+            if (msg.includes('accredited') || msg.includes('qualify') || msg.includes('eligible')) {
+                return "To invest with Endevera, you need to be an accredited investor. This typically means having a net worth over $1M (excluding primary residence) or annual income over $200K. Would you like to apply?";
+            }
+            if (msg.includes('contact') || msg.includes('team') || msg.includes('speak')) {
+                return "You can reach our team at info@endevera.com or call us at (561) 555-0100. Would you like to schedule a call with one of our investment advisors?";
+            }
+            if (msg.includes('how') || msg.includes('work') || msg.includes('process')) {
+                return "Our process is simple: 1) Apply as an accredited investor, 2) Get approved and access exclusive opportunities, 3) Choose investments that match your goals, 4) Monitor performance through your member portal. Would you like to get started?";
+            }
         }
 
         // Default response
-        return "I'm here to help! You can ask me about your portfolio performance, available investment opportunities, accessing documents, or managing your account. What would you like to know?";
+        return "I'm here to help! You can ask me about investment opportunities, our process, eligibility requirements, or how to get started. What would you like to know?";
     }
 
     function scrollToBottom() {
