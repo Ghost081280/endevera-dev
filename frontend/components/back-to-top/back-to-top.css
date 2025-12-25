@@ -1,43 +1,45 @@
-/* BACK TO TOP BUTTON */
+/* ENDEVERA BACK TO TOP BUTTON STYLES */
+
 .back-to-top {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 30px;
+    left: 30px;
     width: 50px;
     height: 50px;
-    background: var(--color-gold);
-    border: none;
+    background: var(--color-dark-gray);
+    border: 1px solid var(--color-medium-gray);
     border-radius: 50%;
     cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition-smooth);
-    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition-smooth);
 }
 
 .back-to-top.visible {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
 }
 
 .back-to-top:hover {
-    background: var(--color-gold-light);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+    background: var(--color-gold);
+    border-color: var(--color-gold);
 }
 
 .back-to-top svg {
-    stroke: var(--color-black);
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-light-gray);
+    stroke-width: 2;
+    fill: none;
+    transition: var(--transition-fast);
 }
 
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
+.back-to-top:hover svg {
+    stroke: var(--color-black);
 }
