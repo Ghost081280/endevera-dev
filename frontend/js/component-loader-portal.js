@@ -10,7 +10,7 @@
     const components = [
         { 
             name: 'nav-member', 
-            html: '/frontend/components/nav-member/nav-member.html',
+            html: '../components/nav-member/nav-member.html',
             css: null, // CSS already loaded in page head
             target: 'body', 
             position: 'afterbegin' 
