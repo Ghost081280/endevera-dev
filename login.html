@@ -335,7 +335,7 @@
                     <div class="demo-credentials">
                         <div class="demo-credentials-title">Demo Access</div>
                         <div class="demo-credentials-text">
-                            Email: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="096d6c6466496d6c6466276a6664">[email&#160;protected]</a></strong><br>
+                            Email: <strong>demo@demo.com</strong><br>
                             Password: <strong>demo</strong>
                         </div>
                     </div>
@@ -446,122 +446,8 @@
         </div>
     </div>
 
-    <!-- Load Mock Data -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="frontend/js/mock-data.js"></script>
-    
-    <!-- Page-specific JavaScript -->
-    <script>
-        // Tab Switching
-        const tabs = document.querySelectorAll('.login-tab');
-        const formContainers = document.querySelectorAll('.login-form-container');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetTab = tab.dataset.tab;
-                
-                // Update active states
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show corresponding form
-                formContainers.forEach(container => {
-                    container.classList.remove('active');
-                });
-                document.getElementById(`${targetTab}FormContainer`).classList.add('active');
-                
-                // Clear error messages
-                document.getElementById('loginError').classList.remove('active');
-                document.getElementById('applyError').classList.remove('active');
-                document.getElementById('applySuccess').classList.remove('active');
-            });
-        });
-
-        // Password Toggle
-        function togglePassword(inputId, button) {
-            const input = document.getElementById(inputId);
-            const eyeOpen = button.querySelector('.eye-open');
-            const eyeClosed = button.querySelector('.eye-closed');
-            
-            if (input.type === 'password') {
-                input.type = 'text';
-                eyeOpen.style.display = 'none';
-                eyeClosed.style.display = 'block';
-            } else {
-                input.type = 'password';
-                eyeOpen.style.display = 'block';
-                eyeClosed.style.display = 'none';
-            }
-        }
-
-        // Login Form Submission
-        const loginForm = document.getElementById('loginForm');
-        const loginError = document.getElementById('loginError');
-
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(loginForm);
-            const email = formData.get('email');
-            const password = formData.get('password');
-            
-            const submitBtn = loginForm.querySelector('[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'LOGGING IN...';
-            loginError.classList.remove('active');
-
-            // Simulate authentication delay
-            setTimeout(() => {
-                // Check demo credentials
-                if (email === DEMO_CREDENTIALS.member.email && password === DEMO_CREDENTIALS.member.password) {
-                    // Set authentication
-                    localStorage.setItem('endevera_auth', 'true');
-                    localStorage.setItem('endevera_role', 'investor');
-                    localStorage.setItem('endevera_user', JSON.stringify(MOCK_DATA.currentUser));
-                    
-                    // Redirect to member portal
-                    window.location.href = '/frontend/portal/dashboard.html';
-                } else {
-                    // Show error
-                    loginError.textContent = 'Invalid email or password. Please use demo credentials.';
-                    loginError.classList.add('active');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'LOGIN TO PORTAL';
-                }
-            }, 800);
-        });
-
-        // Apply Form Submission (Accredited Investor Application)
-        const applyForm = document.getElementById('applyForm');
-        const applyError = document.getElementById('applyError');
-        const applySuccess = document.getElementById('applySuccess');
-
-        applyForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(applyForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            const submitBtn = applyForm.querySelector('[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'SUBMITTING...';
-            applyError.classList.remove('active');
-            applySuccess.classList.remove('active');
-
-            // Simulate application submission
-            setTimeout(() => {
-                // In production, this would send to the API and add to investorApplications
-                // Show success message (SAME AS INDEX.HTML INVESTOR APPLICATION)
-                applySuccess.innerHTML = '<strong>Application Received!</strong><br>Thank you for your interest in Endevera. Our team will review your application and contact you within 48 business hours.';
-                applySuccess.classList.add('active');
-                applyForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'SUBMIT APPLICATION';
-                
-                // Scroll to success message
-                applySuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 800);
-        });
-
-        // Check if user is already logged in
-        const isAuthenticated = localStorage.getItem('endevera_auth');
-        const userRole = localStorage.getItem('endevera_role');
+    <!-- Scripts -->
+    <script src="frontend/js/mock-data.js"></script>
+    <script src="frontend/js/login.js"></script>
+</body>
+</html>
