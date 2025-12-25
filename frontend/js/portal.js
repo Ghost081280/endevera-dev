@@ -17,7 +17,7 @@ function checkMemberAuth() {
     
     // If not authenticated or not a member, redirect to login
     if (!isAuthenticated || userRole !== 'investor') {
-        window.location.href = 'login.html';
+        window.location.href = '../../login.html';
         return false;
     }
     
