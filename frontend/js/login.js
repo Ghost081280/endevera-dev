@@ -81,7 +81,7 @@ function initLoginForm() {
                 localStorage.setItem('endevera_user', JSON.stringify(MOCK_DATA.currentUser));
                 
                 // TODO: Redirect after 2FA verification
-                window.location.href = '/frontend/portal/dashboard.html';
+                window.location.href = 'frontend/portal/dashboard.html';
             } else {
                 // Show error
                 loginError.textContent = 'Invalid email or password. Please use demo credentials.';
