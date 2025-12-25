@@ -551,10 +551,7 @@
 
 .message-item.unread {
     background: var(--color-charcoal);
-}
-
-.message-item.unread::before {
-    opacity: 1;
+    font-weight: 500;
 }
 
 .message-checkbox {
@@ -780,5 +777,56 @@
         width: 100%;
         justify-content: flex-end;
         margin-top: 10px;
+    }
+}
+
+/* PORTAL FOOTER */
+.portal-footer {
+    background: var(--color-charcoal);
+    border-top: 1px solid var(--color-medium-gray);
+    padding: 30px 0;
+    margin-top: 80px;
+}
+
+.portal-footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portal-footer-text {
+    font-size: 13px;
+    color: var(--color-light-gray);
+}
+
+.portal-footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.portal-footer-link {
+    font-size: 13px;
+    color: var(--color-light-gray);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.portal-footer-link:hover {
+    color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+    .portal-footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    .portal-footer-links {
+        gap: 20px;
     }
 }
