@@ -106,6 +106,21 @@
                 </div>
             </div>
 
+            <div class="profile-section">
+                <h2 class="profile-section-title">Security Settings</h2>
+                <div class="profile-field">
+                    <div class="profile-field-label">Auto-Logout Timer</div>
+                    <div style="font-size: 13px; color: var(--color-light-gray); margin-bottom: 15px;">Automatically log out after period of inactivity for added security</div>
+                    <select id="inactivityTimeout" class="profile-select" onchange="updateInactivityTimeout()">
+                        <option value="0">Disabled</option>
+                        <option value="5">5 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="30">30 minutes</option>
+                        <option value="60">1 hour</option>
+                    </select>
+                </div>
+            </div>
+
             <div style="background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); padding: 20px; margin-top: 30px;">
                 <div style="display: flex; gap: 15px; align-items: flex-start;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" style="flex-shrink: 0;">
