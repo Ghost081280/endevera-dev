@@ -491,7 +491,10 @@ function showComingSoon(feature) {
     const modal = createModal({
         title: 'Coming Soon',
         message: `${feature} will be available once we launch on our production server. We're working hard to bring you this feature!`,
-        icon: '🚀',
+        iconSvg: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+        </svg>`,
         buttons: [
             {
                 text: 'Got it',
@@ -504,7 +507,7 @@ function showComingSoon(feature) {
 }
 
 // Generic Modal Creator
-function createModal({ title, message, subtitle, icon, wide, buttons }) {
+function createModal({ title, message, subtitle, icon, iconSvg, wide, buttons }) {
     const modalOverlay = document.createElement('div');
     modalOverlay.className = 'modal-overlay';
     modalOverlay.id = 'portalModal';
@@ -514,6 +517,7 @@ function createModal({ title, message, subtitle, icon, wide, buttons }) {
     modalOverlay.innerHTML = `
         <div class="modal-content" style="${modalWidth}">
             ${icon ? `<div class="modal-icon">${icon}</div>` : ''}
+            ${iconSvg ? `<div class="modal-icon">${iconSvg}</div>` : ''}
             <h2 class="modal-title">${title}</h2>
             ${subtitle ? `<p class="modal-subtitle">${subtitle}</p>` : ''}
             <p class="modal-message">${message}</p>
@@ -527,11 +531,14 @@ function createModal({ title, message, subtitle, icon, wide, buttons }) {
         </div>
     `;
     
-    // Add click handlers
+    // Add click handlers with stopPropagation to prevent flash
     buttons.forEach(btn => {
         const buttonEl = modalOverlay.querySelector(`[data-action="${btn.text}"]`);
         if (buttonEl) {
-            buttonEl.addEventListener('click', btn.onClick);
+            buttonEl.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling that causes flash
+                btn.onClick();
+            });
         }
     });
     
