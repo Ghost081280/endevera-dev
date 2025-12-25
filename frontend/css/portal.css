@@ -411,11 +411,31 @@
     gap: 20px;
     padding: 20px 25px;
     background: var(--color-dark-gray);
-    transition: var(--transition-fast);
+    border: 1px solid var(--color-medium-gray);
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.document-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-gold);
+    opacity: 0;
+    transition: var(--transition-smooth);
 }
 
 .document-item:hover {
     background: var(--color-charcoal);
+    transform: translateX(5px);
+    border-color: rgba(201, 162, 39, 0.3);
+}
+
+.document-item:hover::before {
+    opacity: 1;
 }
 
 .document-icon {
@@ -501,13 +521,32 @@
     gap: 20px;
     padding: 25px;
     background: var(--color-dark-gray);
-    transition: var(--transition-fast);
+    border: 1px solid var(--color-medium-gray);
+    transition: var(--transition-smooth);
     cursor: pointer;
     position: relative;
 }
 
+.message-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-gold);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
 .message-item:hover {
     background: var(--color-charcoal);
+    transform: translateX(5px);
+    border-color: rgba(201, 162, 39, 0.3);
+}
+
+.message-item:hover::before {
+    opacity: 1;
 }
 
 .message-item.unread {
@@ -515,13 +554,7 @@
 }
 
 .message-item.unread::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--color-gold);
+    opacity: 1;
 }
 
 .message-checkbox {
