@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Reports | Endevera Member Portal</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='5' y='5' width='90' height='90' fill='none' stroke='%23c9a227' stroke-width='6'/><text x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='500' fill='%23c9a227' text-anchor='middle'>E</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/frontend/css/shared-styles.css">
+    <link rel="stylesheet" href="/frontend/css/portal.css">
+    <link rel="stylesheet" href="/frontend/components/nav-member/nav-member.css">
+</head>
+<body data-page-type="portal">
+
+    <div class="portal-page">
+        <div class="portal-container">
+            <div class="portal-header">
+                <h1 class="portal-title">Portfolio Reports</h1>
+                <p class="portal-subtitle">Quarterly performance reviews and market analysis</p>
+            </div>
+
+            <div id="reportsContainer"></div>
+        </div>
+    </div>
+
+    <script src="/frontend/js/shared-script.js"></script>
+    <script src="/frontend/js/component-loader-portal.js"></script>
+    <script src="/frontend/js/mock-data.js"></script>
+    <script src="/frontend/js/portal.js"></script>
+    <script src="/frontend/components/nav-member/nav-member.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!PortalUtils.checkMemberAuth()) return;
+            loadReports();
+        });
+
+        function loadReports() {
+            const container = document.getElementById('reportsContainer');
+            if (!container) return;
+
+            const reports = PortalUtils.getReports();
+
+            if (reports.length === 0) {
+                PortalUtils.showEmpty('reportsContainer', 'No Reports Available', 'Portfolio reports will appear here once published.', 'file');
+                return;
+            }
+
+            container.innerHTML = `
+                <div style="display: grid; gap: 25px;">
+                    ${reports.map(report => `
+                        <div style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); padding: 35px; cursor: pointer; transition: var(--transition-smooth);" onclick="window.location.href='/frontend/portal/report-detail.html?id=${report.id}'" onmouseover="this.style.borderColor='rgba(201, 162, 39, 0.3)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'; this.style.transform='translateY(0)'">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                                <div style="flex: 1;">
+                                    <div style="font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold); margin-bottom: 12px;">${report.type}</div>
+                                    <h2 style="font-family: var(--font-serif); font-size: 28px; font-weight: 400; color: var(--color-white); margin-bottom: 12px;">${report.title}</h2>
+                                    <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">${report.excerpt}</p>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 30px;">
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 11px; color: var(--color-light-gray); margin-bottom: 5px;">Published</div>
+                                        <div style="font-size: 14px; color: var(--color-white);">${PortalUtils.formatDate(report.publishedAt)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 30px; padding-top: 20px; border-top: 1px solid var(--color-medium-gray);">
+                                <div>
+                                    <div style="font-size: 11px; color: var(--color-light-gray);">Views</div>
+                                    <div style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-top: 5px;">${PortalUtils.formatNumber(report.viewCount)}</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 11px; color: var(--color-light-gray);">Downloads</div>
+                                    <div style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-top: 5px;">${PortalUtils.formatNumber(report.downloadCount)}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
