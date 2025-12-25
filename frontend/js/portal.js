@@ -508,6 +508,12 @@ function showComingSoon(feature) {
 
 // Generic Modal Creator
 function createModal({ title, message, subtitle, icon, iconSvg, wide, buttons }) {
+    // Remove any existing modal first to prevent flash
+    const existingModal = document.getElementById('portalModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
     const modalOverlay = document.createElement('div');
     modalOverlay.className = 'modal-overlay';
     modalOverlay.id = 'portalModal';
@@ -554,9 +560,13 @@ function createModal({ title, message, subtitle, icon, iconSvg, wide, buttons })
 
 function closeModal() {
     const modal = document.getElementById('portalModal');
-    if (modal) {
+    if (modal && !modal.classList.contains('modal-closing')) {
         modal.classList.add('modal-closing');
-        setTimeout(() => modal.remove(), 300);
+        setTimeout(() => {
+            if (modal.parentNode) {
+                modal.remove();
+            }
+        }, 300);
     }
 }
 
@@ -584,10 +594,32 @@ function resetInactivityTimer() {
     
     if (inactivityTimeout > 0) {
         inactivityTimer = setTimeout(() => {
-            alert('You have been logged out due to inactivity.');
-            logoutMember();
+            showInactivityLogout();
         }, inactivityTimeout * 60 * 1000); // Convert minutes to milliseconds
     }
+}
+
+// Inactivity logout modal
+function showInactivityLogout() {
+    const modal = createModal({
+        title: 'Session Timeout',
+        message: 'You have been logged out due to inactivity.',
+        iconSvg: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+        </svg>`,
+        buttons: [
+            {
+                text: 'OK',
+                style: 'primary',
+                onClick: () => {
+                    closeModal();
+                    logoutMember();
+                }
+            }
+        ]
+    });
+    document.body.appendChild(modal);
 }
 
 // Initialize on page load
@@ -599,4 +631,5 @@ document.addEventListener('DOMContentLoaded', () => {
 window.showLogoutConfirmation = showLogoutConfirmation;
 window.showMessageDetail = showMessageDetail;
 window.showComingSoon = showComingSoon;
+window.createModal = createModal;
 window.closeModal = closeModal;
