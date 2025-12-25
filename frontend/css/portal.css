@@ -7,13 +7,13 @@
 .portal-page {
     min-height: 100vh;
     background: var(--color-black);
-    padding-top: 80px;
+    padding-top: 90px;
 }
 
 .portal-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 60px;
+    padding: 60px 60px;
 }
 
 .portal-header {
