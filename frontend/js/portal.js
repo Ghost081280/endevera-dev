@@ -49,7 +49,7 @@ function logoutMember() {
     localStorage.removeItem('endevera_auth');
     localStorage.removeItem('endevera_role');
     localStorage.removeItem('endevera_user');
-    window.location.href = 'login.html';
+    window.location.href = '../../login.html';
 }
 
 // ============================================
