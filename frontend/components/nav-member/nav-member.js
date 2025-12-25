@@ -136,7 +136,7 @@ function initMemberNavigation() {
             localStorage.removeItem('endevera_user');
             
             // Redirect to login
-            window.location.href = '/login.html';
+            window.location.href = '/endevera-dev/login.html';
         }
     }
 }
