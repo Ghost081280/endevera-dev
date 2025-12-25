@@ -8,157 +8,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Shared Styles -->
     <link rel="stylesheet" href="/frontend/css/shared-styles.css">
-    
-    <!-- Portal Styles -->
     <link rel="stylesheet" href="/frontend/css/portal.css">
-    
-    <!-- Member Navigation -->
     <link rel="stylesheet" href="/frontend/components/nav-member/nav-member.css">
 </head>
 <body data-page-type="portal">
 
-    <!-- Member Navigation Component -->
-
     <div class="portal-page">
         <div class="portal-container">
-            <!-- Header -->
             <div class="portal-header">
                 <h1 class="portal-title">Investment Opportunities</h1>
                 <p class="portal-subtitle">Browse active and upcoming infrastructure investment opportunities</p>
             </div>
 
-            <!-- Filter Tabs -->
             <div style="display: flex; gap: 10px; margin-bottom: 40px; border-bottom: 1px solid var(--color-medium-gray); flex-wrap: wrap;">
-                <button class="filter-tab active" data-filter="all" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">
-                    All Deals
-                </button>
-                <button class="filter-tab" data-filter="active" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">
-                    Active
-                </button>
-                <button class="filter-tab" data-filter="my-investments" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">
-                    My Investments
-                </button>
-                <button class="filter-tab" data-filter="upcoming" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">
-                    Upcoming
-                </button>
-                <button class="filter-tab" data-filter="funded" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">
-                    Funded
-                </button>
+                <button class="filter-tab active" data-filter="all" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">All Deals</button>
+                <button class="filter-tab" data-filter="active" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">Active</button>
+                <button class="filter-tab" data-filter="my-investments" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">My Investments</button>
+                <button class="filter-tab" data-filter="upcoming" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">Upcoming</button>
+                <button class="filter-tab" data-filter="funded" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">Funded</button>
             </div>
 
-            <!-- Deals Container -->
-            <div id="dealsContainer">
-                <!-- Loaded by JavaScript -->
-            </div>
+            <div id="dealsContainer"></div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="/frontend/js/shared-script.js"></script>
     <script src="/frontend/js/component-loader-portal.js"></script>
     <script src="/frontend/js/mock-data.js"></script>
     <script src="/frontend/js/portal.js"></script>
     <script src="/frontend/components/nav-member/nav-member.js"></script>
-    
-    <!-- Deals Page Script -->
-    <script>
-        let currentFilter = 'all';
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check authentication
-            if (!PortalUtils.checkMemberAuth()) return;
-
-            // Set up filter tabs
-            setupFilterTabs();
-
-            // Load deals
-            loadDeals();
-        });
-
-        function setupFilterTabs() {
-            const tabs = document.querySelectorAll('.filter-tab');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Update active state
-                    tabs.forEach(t => {
-                        t.classList.remove('active');
-                        t.style.color = 'var(--color-light-gray)';
-                        t.style.borderBottomColor = 'transparent';
-                    });
-                    tab.classList.add('active');
-                    tab.style.color = 'var(--color-gold)';
-                    tab.style.borderBottomColor = 'var(--color-gold)';
-                    
-                    // Update filter and reload
-                    currentFilter = tab.dataset.filter;
-                    loadDeals();
-                });
-            });
-
-            // Style active tab
-            const activeTab = document.querySelector('.filter-tab.active');
-            if (activeTab) {
-                activeTab.style.color = 'var(--color-gold)';
-                activeTab.style.borderBottomColor = 'var(--color-gold)';
-            }
-        }
-
-        function loadDeals() {
-            const container = document.getElementById('dealsContainer');
-            if (!container) return;
-
-            PortalUtils.showLoading('dealsContainer');
-
-            setTimeout(() => {
-                let deals = PortalUtils.getDeals();
-
-                // Apply filter
-                switch(currentFilter) {
-                    case 'active':
-                        deals = deals.filter(d => d.status === 'active');
-                        break;
-                    case 'my-investments':
-                        deals = deals.filter(d => d.userInvested);
-                        break;
-                    case 'upcoming':
-                        deals = deals.filter(d => d.status === 'upcoming');
-                        break;
-                    case 'funded':
-                        deals = deals.filter(d => d.status === 'funded');
-                        break;
-                    case 'all':
-                    default:
-                        // Show all deals
-                        break;
-                }
-
-                if (deals.length === 0) {
-                    const emptyMessages = {
-                        'active': 'No active investment opportunities at this time.',
-                        'my-investments': 'You haven\'t invested in any deals yet. Browse available opportunities to get started.',
-                        'upcoming': 'No upcoming opportunities at this time. Check back soon!',
-                        'funded': 'No fully funded deals to display.',
-                        'all': 'No investment opportunities available.'
-                    };
-                    
-                    PortalUtils.showEmpty('dealsContainer', 'No Deals Found', emptyMessages[currentFilter] || emptyMessages['all'], 'briefcase');
-                    return;
-                }
-
-                // Render deals
-                container.innerHTML = deals.map(deal => PortalUtils.renderDealCard(deal)).join('');
-            }, 300);
-        }
-    </script>
+    <script src="/frontend/js/deals.js"></script>
 
     <style>
-        .filter-tab:hover:not(.active) {
-            color: var(--color-white) !important;
-        }
+        .filter-tab:hover:not(.active) { color: var(--color-white) !important; }
     </style>
 </body>
 </html>
