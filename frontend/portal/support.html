@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="/frontend/css/shared-styles.css">
     <link rel="stylesheet" href="/frontend/css/portal.css">
     <link rel="stylesheet" href="/frontend/components/nav-member/nav-member.css">
@@ -22,7 +21,6 @@
                 <p class="portal-subtitle">Get assistance with your investment portal</p>
             </div>
 
-            <!-- Contact Cards -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px;">
                 <div style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); padding: 30px; text-align: center;">
                     <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
@@ -55,18 +53,14 @@
                     </div>
                     <h3 style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 10px;">Schedule Call</h3>
                     <p style="font-size: 14px; color: var(--color-light-gray); margin-bottom: 15px;">Talk to an advisor</p>
-                    <button onclick="scheduleCall()" style="font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-gold); background: transparent; border: 1px solid var(--color-gold); padding: 10px 20px; cursor: pointer; transition: var(--transition-fast);" onmouseover="this.style.background='rgba(201, 162, 39, 0.1)'" onmouseout="this.style.background='transparent'">
-                        Book a Call
-                    </button>
+                    <button onclick="scheduleCall()" style="font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-gold); background: transparent; border: 1px solid var(--color-gold); padding: 10px 20px; cursor: pointer; transition: var(--transition-fast);" onmouseover="this.style.background='rgba(201, 162, 39, 0.1)'" onmouseout="this.style.background='transparent'">Book a Call</button>
                 </div>
             </div>
 
-            <!-- FAQ Section -->
             <div style="margin-bottom: 60px;">
                 <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--color-white); margin-bottom: 30px;">Frequently Asked Questions</h2>
                 
                 <div class="faq-list">
-                    <!-- FAQ Item 1 -->
                     <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
                         <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
                             <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How do I invest in an opportunity?</span>
@@ -81,7 +75,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 2 -->
                     <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
                         <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
                             <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How can I track my investments?</span>
@@ -96,7 +89,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 3 -->
                     <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
                         <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
                             <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">When will I receive returns on my investment?</span>
@@ -111,7 +103,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 4 -->
                     <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
                         <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
                             <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How do I access important documents?</span>
@@ -126,7 +117,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 5 -->
                     <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
                         <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
                             <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How do I update my account information?</span>
@@ -141,7 +131,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 6 -->
                     <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray);">
                         <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
                             <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">What if I have a question not listed here?</span>
@@ -158,7 +147,6 @@
                 </div>
             </div>
 
-            <!-- Additional Resources -->
             <div>
                 <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--color-white); margin-bottom: 30px;">Additional Resources</h2>
                 
@@ -194,28 +182,6 @@
     <script src="/frontend/js/mock-data.js"></script>
     <script src="/frontend/js/portal.js"></script>
     <script src="/frontend/components/nav-member/nav-member.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!PortalUtils.checkMemberAuth()) return;
-        });
-
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const icon = button.querySelector('.faq-icon');
-            
-            if (answer.style.display === 'none' || answer.style.display === '') {
-                answer.style.display = 'block';
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                answer.style.display = 'none';
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        function scheduleCall() {
-            alert('Schedule a Call\n\nIn production, this would open a calendar booking system where you can:\n- Choose an available time slot\n- Select the type of consultation\n- Provide meeting details\n\nFor now, please email support@endevera.com to schedule.');
-        }
-    </script>
+    <script src="/frontend/js/support.js"></script>
 </body>
 </html>
