@@ -6,12 +6,12 @@
 (function() {
     'use strict';
 
-    // Detect if we're in the public subfolder by checking the path
+    // Detect if we're in the public subfolder
     const path = window.location.pathname;
     const inPublicFolder = path.includes('/public/');
-    const basePrefix = inPublicFolder ? '../' : '';
+    const basePrefix = inPublicFolder ? '../' : 'frontend/';
 
-    // Component configuration with reorganized folder structure
+    // Component configuration
     const components = [
         { 
             name: 'nav', 
@@ -75,6 +75,9 @@
 
     // Load all components
     async function loadComponents() {
+        console.log('🔧 Component Loader starting...');
+        console.log('📍 Path detection:', { path, inPublicFolder, basePrefix });
+        
         for (const component of components) {
             try {
                 // Load CSS first if it exists
@@ -109,7 +112,7 @@
         // Once all components are loaded, dispatch event
         if (loadedCount === totalComponents) {
             document.dispatchEvent(new CustomEvent('endevera:components-loaded'));
-            console.log('✓ All public components loaded');
+            console.log('✅ All public components loaded');
         }
     }
 
