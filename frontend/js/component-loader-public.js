@@ -32,7 +32,7 @@
         { 
             name: 'chatbot', 
             html: 'frontend/components/shared/chatbot/chatbot.html',
-            css: null, // CSS already loaded in index.html
+            css: null, // CSS already loaded in page head
             target: 'body', 
             position: 'beforeend' 
         },
