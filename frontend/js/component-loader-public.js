@@ -6,47 +6,52 @@
 (function() {
     'use strict';
 
+    // Detect if we're in the public subfolder by checking the path
+    const path = window.location.pathname;
+    const inPublicFolder = path.includes('/public/');
+    const basePrefix = inPublicFolder ? '../' : '';
+
     // Component configuration with reorganized folder structure
     const components = [
         { 
             name: 'nav', 
-            html: 'frontend/components/public/nav/nav.html',
-            css: 'frontend/components/public/nav/nav.css',
+            html: basePrefix + 'frontend/components/public/nav/nav.html',
+            css: basePrefix + 'frontend/components/public/nav/nav.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'scroll-progress', 
-            html: 'frontend/components/public/scroll-progress/scroll-progress.html',
-            css: 'frontend/components/public/scroll-progress/scroll-progress.css',
+            html: basePrefix + 'frontend/components/public/scroll-progress/scroll-progress.html',
+            css: basePrefix + 'frontend/components/public/scroll-progress/scroll-progress.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'footer', 
-            html: 'frontend/components/public/footer/footer.html',
-            css: 'frontend/components/public/footer/footer.css',
+            html: basePrefix + 'frontend/components/public/footer/footer.html',
+            css: basePrefix + 'frontend/components/public/footer/footer.css',
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'chatbot', 
-            html: 'frontend/components/shared/chatbot/chatbot.html',
+            html: basePrefix + 'frontend/components/shared/chatbot/chatbot.html',
             css: null, // CSS already loaded in page head
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'back-to-top', 
-            html: 'frontend/components/shared/back-to-top/back-to-top.html',
-            css: 'frontend/components/shared/back-to-top/back-to-top.css',
+            html: basePrefix + 'frontend/components/shared/back-to-top/back-to-top.html',
+            css: basePrefix + 'frontend/components/shared/back-to-top/back-to-top.css',
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'cookie-banner', 
-            html: 'frontend/components/public/cookie-banner/cookie-banner.html',
-            css: 'frontend/components/public/cookie-banner/cookie-banner.css',
+            html: basePrefix + 'frontend/components/public/cookie-banner/cookie-banner.html',
+            css: basePrefix + 'frontend/components/public/cookie-banner/cookie-banner.css',
             target: 'body', 
             position: 'beforeend' 
         }
