@@ -15,43 +15,43 @@
     const components = [
         { 
             name: 'nav', 
-            html: basePrefix + 'frontend/components/public/nav/nav.html',
-            css: basePrefix + 'frontend/components/public/nav/nav.css',
+            html: basePrefix + 'components/public/nav/nav.html',
+            css: basePrefix + 'components/public/nav/nav.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'scroll-progress', 
-            html: basePrefix + 'frontend/components/public/scroll-progress/scroll-progress.html',
-            css: basePrefix + 'frontend/components/public/scroll-progress/scroll-progress.css',
+            html: basePrefix + 'components/public/scroll-progress/scroll-progress.html',
+            css: basePrefix + 'components/public/scroll-progress/scroll-progress.css',
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'footer', 
-            html: basePrefix + 'frontend/components/public/footer/footer.html',
-            css: basePrefix + 'frontend/components/public/footer/footer.css',
+            html: basePrefix + 'components/public/footer/footer.html',
+            css: basePrefix + 'components/public/footer/footer.css',
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'chatbot', 
-            html: basePrefix + 'frontend/components/shared/chatbot/chatbot.html',
+            html: basePrefix + 'components/shared/chatbot/chatbot.html',
             css: null, // CSS already loaded in page head
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'back-to-top', 
-            html: basePrefix + 'frontend/components/shared/back-to-top/back-to-top.html',
-            css: basePrefix + 'frontend/components/shared/back-to-top/back-to-top.css',
+            html: basePrefix + 'components/shared/back-to-top/back-to-top.html',
+            css: basePrefix + 'components/shared/back-to-top/back-to-top.css',
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'cookie-banner', 
-            html: basePrefix + 'frontend/components/public/cookie-banner/cookie-banner.html',
-            css: basePrefix + 'frontend/components/public/cookie-banner/cookie-banner.css',
+            html: basePrefix + 'components/public/cookie-banner/cookie-banner.html',
+            css: basePrefix + 'components/public/cookie-banner/cookie-banner.css',
             target: 'body', 
             position: 'beforeend' 
         }
