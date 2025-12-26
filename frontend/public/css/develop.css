@@ -1,6 +1,6 @@
 /* ============================================
-   ENDEVERA ADVISE PAGE STYLES
-   Page-specific styles for advisory services
+   ENDEVERA DEVELOP PAGE STYLES
+   Page-specific styles for development services
    ============================================ */
 
 /* HERO SECTION */
@@ -80,8 +80,8 @@
     animation: fadeInUp 1s ease forwards 0.7s;
 }
 
-/* EXPERTISE GRID */
-.expertise-grid {
+/* SERVICES GRID */
+.services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -89,7 +89,7 @@
     margin: 80px auto 0;
 }
 
-.expertise-card {
+.service-card {
     background: var(--color-dark-gray);
     border: 1px solid var(--color-medium-gray);
     padding: 50px 40px;
@@ -98,7 +98,7 @@
     overflow: hidden;
 }
 
-.expertise-card::before {
+.service-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -110,17 +110,17 @@
     transition: var(--transition-smooth);
 }
 
-.expertise-card:hover {
+.service-card:hover {
     transform: translateY(-10px);
     border-color: rgba(201, 162, 39, 0.4);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-.expertise-card:hover::before {
+.service-card:hover::before {
     opacity: 1;
 }
 
-.expertise-icon {
+.service-icon {
     width: 60px;
     height: 60px;
     background: rgba(201, 162, 39, 0.1);
@@ -132,12 +132,12 @@
     transition: var(--transition-smooth);
 }
 
-.expertise-card:hover .expertise-icon {
+.service-card:hover .service-icon {
     background: var(--color-gold);
     border-color: var(--color-gold);
 }
 
-.expertise-icon svg {
+.service-icon svg {
     width: 28px;
     height: 28px;
     stroke: var(--color-gold);
@@ -146,11 +146,11 @@
     transition: var(--transition-smooth);
 }
 
-.expertise-card:hover .expertise-icon svg {
+.service-card:hover .service-icon svg {
     stroke: var(--color-black);
 }
 
-.expertise-title {
+.service-title {
     font-family: var(--font-serif);
     font-size: 24px;
     font-weight: 400;
@@ -158,7 +158,7 @@
     margin-bottom: 15px;
 }
 
-.expertise-text {
+.service-text {
     font-size: 15px;
     font-weight: 300;
     color: var(--color-light-gray);
@@ -237,7 +237,7 @@
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
-    .expertise-grid {
+    .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -257,7 +257,7 @@
 }
 
 @media (max-width: 768px) {
-    .expertise-grid {
+    .services-grid {
         grid-template-columns: 1fr;
     }
 
