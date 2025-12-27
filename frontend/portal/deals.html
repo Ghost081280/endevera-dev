@@ -18,72 +18,33 @@
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <!-- Member Navigation will load here -->
-        
-        <!-- Hero Header -->
-        <section class="portal-hero">
-            <div class="portal-hero-content">
-                <h1 class="portal-hero-title">Investment Opportunities</h1>
-                <p class="portal-hero-subtitle">Explore exclusive investment opportunities curated for accredited investors</p>
+        <div class="portal-container">
+            <div class="portal-header">
+                <h1 class="portal-title">Investment Opportunities</h1>
+                <p class="portal-subtitle">Explore exclusive investment opportunities curated for accredited investors</p>
             </div>
-        </section>
 
-        <!-- Main Content -->
-        <section class="portal-section">
-            <div class="portal-container">
-                
-                <!-- Filters -->
-                <div class="portal-filters">
-                    <div class="filter-group">
-                        <label class="filter-label">Status</label>
-                        <select class="filter-select" id="filterStatus">
-                            <option value="all">All Opportunities</option>
-                            <option value="active">Active</option>
-                            <option value="closing_soon">Closing Soon</option>
-                            <option value="upcoming">Coming Soon</option>
-                        </select>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <label class="filter-label">Category</label>
-                        <select class="filter-select" id="filterCategory">
-                            <option value="all">All Categories</option>
-                            <option value="Real Estate">Real Estate</option>
-                            <option value="Technology">Technology</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="Energy">Energy</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label class="filter-label">Sort By</label>
-                        <select class="filter-select" id="filterSort">
-                            <option value="newest">Newest First</option>
-                            <option value="closing">Closing Soon</option>
-                            <option value="progress">Most Funded</option>
-                            <option value="return">Highest Return</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Deals Grid -->
-                <div class="deals-grid" id="dealsGrid">
-                    <!-- Deal cards will load here -->
-                </div>
-
+            <div style="display: flex; gap: 10px; margin-bottom: 40px; border-bottom: 1px solid var(--color-medium-gray); flex-wrap: wrap;">
+                <button class="filter-tab active" data-filter="all" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">All Deals</button>
+                <button class="filter-tab" data-filter="active" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">Active</button>
+                <button class="filter-tab" data-filter="my-investments" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">My Investments</button>
+                <button class="filter-tab" data-filter="upcoming" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">Upcoming</button>
+                <button class="filter-tab" data-filter="funded" style="flex: 1; min-width: 120px; padding: 15px; background: transparent; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; border-bottom: 2px solid transparent; transition: var(--transition-fast);">Funded</button>
             </div>
-        </section>
 
-        <!-- Footer will load here -->
+            <div id="dealsContainer"></div>
+        </div>
     </div>
 
-    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
     <script src="js/portal.js"></script>
     <script src="../components/portal/nav-member/nav-member.js"></script>
     <script src="js/deals.js"></script>
+    <style>
+        .filter-tab:hover:not(.active) { color: var(--color-white) !important; }
+    </style>
     <script src="../components/shared/chatbot/chatbot.js"></script>
     <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
