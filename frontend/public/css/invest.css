@@ -1,6 +1,6 @@
 /* ============================================
    ENDEVERA INVEST PAGE STYLES
-   Page-specific styles for advisory services
+   Page-specific styles for investment services
    ============================================ */
 
 /* HERO SECTION */
@@ -80,7 +80,7 @@
     animation: fadeInUp 1s ease forwards 0.7s;
 }
 
-/* EXPERTISE GRID */
+/* FOCUS GRID */
 .focus-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -221,18 +221,6 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--color-light-gray);
-}
-
-/* ANIMATIONS */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* RESPONSIVE */
