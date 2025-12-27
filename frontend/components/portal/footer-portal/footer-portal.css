@@ -11,7 +11,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 60px;
-    padding-right: 100px; /* Space for back-to-top button on desktop */
+    padding-left: 120px !important; /* Space for back-to-top button on LEFT */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -41,15 +41,14 @@
 
 @media (max-width: 768px) {
     .portal-footer {
-        padding-bottom: 180px; /* Extra space for chatbot + back-to-top buttons on mobile */
+        padding-bottom: 180px !important; /* Space for chatbot + back-to-top buttons */
     }
 
     .portal-footer-content {
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
-        padding: 0 30px;
-        padding-right: 30px; /* Remove desktop padding */
+        padding: 0 30px !important; /* Remove desktop padding on mobile */
     }
 
     .portal-footer-links {
