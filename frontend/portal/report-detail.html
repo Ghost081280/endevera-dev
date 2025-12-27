@@ -11,39 +11,26 @@
     <link rel="stylesheet" href="../css/shared-styles.css">
     <link rel="stylesheet" href="css/portal.css">
     <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
     <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
     <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <!-- Member Navigation will load here -->
-        
-        <!-- Main Content -->
-        <section class="portal-section">
-            <div class="portal-container">
-                
-                <!-- Back Button -->
-                <a href="reports.html" class="back-link">
-                    <svg viewBox="0 0 24 24">
+        <div class="portal-container" style="max-width: 900px;">
+            <div style="margin-bottom: 30px;">
+                <a href="reports.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.color='var(--color-gold)'" onmouseout="this.style.color='var(--color-light-gray)'">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
                     Back to Reports
                 </a>
-
-                <!-- Report Detail will load here -->
-                <div id="reportDetailContainer">
-                    <!-- Loading state -->
-                </div>
-
             </div>
-        </section>
 
-        <!-- Footer will load here -->
+            <div id="reportDetailContainer"></div>
+        </div>
     </div>
 
-    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
