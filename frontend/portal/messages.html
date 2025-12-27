@@ -9,38 +9,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared-styles.css">
-    <link rel="stylesheet" href="../css/portal.css">
-    <link rel="stylesheet" href="../components/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/chatbot/chatbot.css">
-    <link rel="stylesheet" href="../components/back-to-top/back-to-top.css">
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
+    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
+    <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
+    <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <div class="portal-container">
-            <div class="portal-header">
-                <h1 class="portal-title">Messages</h1>
-                <p class="portal-subtitle">Communications from the Endevera team</p>
+        <!-- Member Navigation will load here -->
+        
+        <!-- Hero Header -->
+        <section class="portal-hero">
+            <div class="portal-hero-content">
+                <h1 class="portal-hero-title">Messages</h1>
+                <p class="portal-hero-subtitle">Communications from the Endevera team and deal updates</p>
             </div>
+        </section>
 
-            <div style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
-                <button class="filter-btn active" data-filter="all" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">All Messages</button>
-                <button class="filter-btn" data-filter="unread" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">Unread</button>
-                <button class="filter-btn" data-filter="updates" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">Updates</button>
-                <button class="filter-btn" data-filter="system" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">System</button>
+        <!-- Main Content -->
+        <section class="portal-section">
+            <div class="portal-container">
+                
+                <!-- Filters -->
+                <div class="portal-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Filter</label>
+                        <select class="filter-select" id="filterType">
+                            <option value="all">All Messages</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Sort By</label>
+                        <select class="filter-select" id="filterSort">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Messages List -->
+                <div class="portal-card">
+                    <div class="portal-card-body">
+                        <div id="messagesContainer">
+                            <!-- Messages will load here -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
-            <div id="messagesContainer"></div>
-        </div>
+        <!-- Footer will load here -->
     </div>
 
+    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
-    <script src="../js/portal.js"></script>
-    <script src="../components/nav-member/nav-member.js"></script>
-    <script src="../js/messages.js"></script>
-    <script src="../components/chatbot/chatbot.js"></script>
-    <script src="../components/back-to-top/back-to-top.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="../components/portal/nav-member/nav-member.js"></script>
+    <script src="js/messages.js"></script>
+    <script src="../components/shared/chatbot/chatbot.js"></script>
+    <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
 </html>
