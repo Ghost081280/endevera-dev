@@ -3,189 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support & Help | Endevera Member Portal</title>
+    <title>Support | Endevera Member Portal</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='5' y='5' width='90' height='90' fill='none' stroke='%23c9a227' stroke-width='6'/><text x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='500' fill='%23c9a227' text-anchor='middle'>E</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared-styles.css">
-    <link rel="stylesheet" href="../css/portal.css">
-    <link rel="stylesheet" href="../components/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/chatbot/chatbot.css">
-    <link rel="stylesheet" href="../components/back-to-top/back-to-top.css">
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
+    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
+    <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
+    <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <div class="portal-container" style="max-width: 900px;">
-            <div class="portal-header">
-                <h1 class="portal-title">Support & Help</h1>
-                <p class="portal-subtitle">Get assistance with your investment portal</p>
+        <!-- Member Navigation will load here -->
+        
+        <!-- Hero Header -->
+        <section class="portal-hero">
+            <div class="portal-hero-content">
+                <h1 class="portal-hero-title">Support Center</h1>
+                <p class="portal-hero-subtitle">Get help with your account and investments</p>
             </div>
+        </section>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px;">
-                <div style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); padding: 30px; text-align: center;">
-                    <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 10px;">Email Support</h3>
-                    <p style="font-size: 14px; color: var(--color-light-gray); margin-bottom: 15px;">Get help via email</p>
-                    <a href="/cdn-cgi/l/email-protection#b9caccc9c9d6cbcdf9dcd7dddccfdccbd897dad6d4" style="font-size: 14px; color: var(--color-gold); text-decoration: none;"><span class="__cf_email__" data-cfemail="ea999f9a9a85989eaa8f848e8f9c8f988bc4898587">[email&#160;protected]</span></a>
-                </div>
-
-                <div style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); padding: 30px; text-align: center;">
-                    <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 10px;">Phone Support</h3>
-                    <p style="font-size: 14px; color: var(--color-light-gray); margin-bottom: 15px;">Mon-Fri, 9AM-5PM EST</p>
-                    <a href="tel:+15615550100" style="font-size: 14px; color: var(--color-gold); text-decoration: none;">+1 (561) 555-0100</a>
-                </div>
-
-                <div style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); padding: 30px; text-align: center;">
-                    <div style="width: 60px; height: 60px; margin: 0 auto 20px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 10px;">Schedule Call</h3>
-                    <p style="font-size: 14px; color: var(--color-light-gray); margin-bottom: 15px;">Talk to an advisor</p>
-                    <button onclick="scheduleCall()" style="font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-gold); background: transparent; border: 1px solid var(--color-gold); padding: 10px 20px; cursor: pointer; transition: var(--transition-fast);" onmouseover="this.style.background='rgba(201, 162, 39, 0.1)'" onmouseout="this.style.background='transparent'">Book a Call</button>
-                </div>
-            </div>
-
-            <div style="margin-bottom: 60px;">
-                <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--color-white); margin-bottom: 30px;">Frequently Asked Questions</h2>
+        <!-- Main Content -->
+        <section class="portal-section">
+            <div class="portal-container">
                 
-                <div class="faq-list">
-                    <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
-                        <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
-                            <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How do I invest in an opportunity?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" class="faq-icon">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" style="display: none; padding: 0 30px 25px 30px;">
-                            <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">
-                                To invest in an opportunity, navigate to the "Investment Opportunities" page, review the deal details, and click "Express Interest." Our team will contact you within 24 hours to discuss the investment process, minimum requirements, and next steps.
-                            </p>
+                <div class="portal-grid-2">
+                    
+                    <!-- Contact Form -->
+                    <div class="portal-card">
+                        <div class="portal-card-header">
+                            <h2 class="portal-card-title">Contact Support</h2>
+                        </div>
+                        <div class="portal-card-body">
+                            <div class="form-success-message" id="supportSuccess"></div>
+                            
+                            <form id="supportForm">
+                                <div class="form-group">
+                                    <label class="form-label">Subject *</label>
+                                    <input type="text" class="form-input" name="subject" placeholder="How can we help?" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Category *</label>
+                                    <select class="form-input" name="category" required>
+                                        <option value="">Select a category...</option>
+                                        <option value="account">Account & Profile</option>
+                                        <option value="investment">Investment Questions</option>
+                                        <option value="documents">Documents & Reports</option>
+                                        <option value="technical">Technical Issues</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Message *</label>
+                                    <textarea class="form-textarea" name="message" placeholder="Please describe your question or issue in detail..." rows="6" required></textarea>
+                                </div>
+
+                                <button type="submit" class="form-submit">Send Message</button>
+                            </form>
                         </div>
                     </div>
 
-                    <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
-                        <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
-                            <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How can I track my investments?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" class="faq-icon">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" style="display: none; padding: 0 30px 25px 30px;">
-                            <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">
-                                Your dashboard provides a complete overview of all your active investments. You can view detailed performance metrics, funding progress, and expected returns for each deal. Quarterly reports with comprehensive updates are also available in the "Portfolio Reports" section.
-                            </p>
+                    <!-- FAQ & Resources -->
+                    <div class="portal-card">
+                        <div class="portal-card-header">
+                            <h2 class="portal-card-title">Quick Help</h2>
+                        </div>
+                        <div class="portal-card-body">
+                            
+                            <div class="support-contact-info">
+                                <h3 style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 15px;">Contact Information</h3>
+                                
+                                <div class="support-contact-item">
+                                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: var(--color-gold); stroke-width: 2; fill: none;">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    <div>
+                                        <div style="font-size: 12px; color: var(--color-light-gray); margin-bottom: 3px;">Email</div>
+                                        <div style="font-size: 14px; color: var(--color-white);">support@endevera.com</div>
+                                    </div>
+                                </div>
+
+                                <div class="support-contact-item">
+                                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: var(--color-gold); stroke-width: 2; fill: none;">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                    <div>
+                                        <div style="font-size: 12px; color: var(--color-light-gray); margin-bottom: 3px;">Phone</div>
+                                        <div style="font-size: 14px; color: var(--color-white);">1-800-ENDEVERA</div>
+                                    </div>
+                                </div>
+
+                                <div class="support-contact-item">
+                                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: var(--color-gold); stroke-width: 2; fill: none;">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                    <div>
+                                        <div style="font-size: 12px; color: var(--color-light-gray); margin-bottom: 3px;">Business Hours</div>
+                                        <div style="font-size: 14px; color: var(--color-white);">Mon-Fri, 9am-6pm EST</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 30px;">
+                                <h3 style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 15px;">Frequently Asked Questions</h3>
+                                <div class="faq-list">
+                                    <a href="#" class="faq-item">How do I review investment documents?</a>
+                                    <a href="#" class="faq-item">When will I receive my quarterly report?</a>
+                                    <a href="#" class="faq-item">How do I update my profile information?</a>
+                                    <a href="#" class="faq-item">What is the minimum investment amount?</a>
+                                    <a href="#" class="faq-item">How do I track my investment performance?</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
-                        <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
-                            <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">When will I receive returns on my investment?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" class="faq-icon">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" style="display: none; padding: 0 30px 25px 30px;">
-                            <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">
-                                Return timelines vary by investment type and are specified in each deal's prospectus. Infrastructure projects typically have terms ranging from 5-8 years with potential for interim distributions. Specific payment schedules and expected return dates are outlined in your investment documentation.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
-                        <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
-                            <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How do I access important documents?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" class="faq-icon">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" style="display: none; padding: 0 30px 25px 30px;">
-                            <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">
-                                All investment documents, prospectuses, legal agreements, and quarterly reports are available in the "Documents" section of your portal. You can view them online or download them for your records. Documents are organized by category for easy access.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); margin-bottom: 15px;">
-                        <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
-                            <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">How do I update my account information?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" class="faq-icon">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" style="display: none; padding: 0 30px 25px 30px;">
-                            <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">
-                                Navigate to "My Profile" to view your account information. To update contact details, company information, or communication preferences, click "Edit Profile Information" or contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d5e585d5d425f596d484349485b485f4c034e4240">[email&#160;protected]</a> for assistance.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" style="background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray);">
-                        <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 25px 30px; background: transparent; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left;">
-                            <span style="font-size: 16px; font-weight: 500; color: var(--color-white);">What if I have a question not listed here?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" class="faq-icon">
-                                <polyline points="6 9 12 15 18 9"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" style="display: none; padding: 0 30px 25px 30px;">
-                            <p style="font-size: 15px; color: var(--color-light-gray); line-height: 1.7;">
-                                Our support team is here to help! Contact us via email at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bfcccacfcfd0cdcbffdad1dbdac9dacdde91dcd0d2">[email&#160;protected]</a>, call +1 (561) 555-0100 during business hours, or schedule a call with an advisor. We typically respond to inquiries within 24 business hours.
-                            </p>
-                        </div>
-                    </div>
                 </div>
+
             </div>
+        </section>
 
-            <div>
-                <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--color-white); margin-bottom: 30px;">Additional Resources</h2>
-                
-                <div style="display: grid; gap: 20px;">
-                    <a href="documents.html" style="display: flex; align-items: center; gap: 20px; padding: 25px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                        </svg>
-                        <div>
-                            <div style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 5px;">Platform User Guide</div>
-                            <div style="font-size: 14px; color: var(--color-light-gray);">Complete guide to using the member portal</div>
-                        </div>
-                    </a>
+        <!-- Footer will load here -->
+    </div>
 
-                    <a href="documents.html" style="display: flex; align-items: center; gap: 20px; padding: 25px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                        </svg>
-                        <div>
-                            <div style="font-size: 16px; font-weight: 500; color: var(--color-white); margin-bottom: 5px;">Investment Process Overview</div>
-                            <div style="font-size: 14px; color: var(--color-light-gray);">Learn about our investment workflow and timelines</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-      </div>
-
+    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
-    <script src="../js/portal.js"></script>
-    <script src="../components/nav-member/nav-member.js"></script>
-    <script src="../js/support.js"></script>
-    <script src="../components/chatbot/chatbot.js"></script>
-    <script src="../components/back-to-top/back-to-top.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="../components/portal/nav-member/nav-member.js"></script>
+    <script src="js/support.js"></script>
+    <script src="../components/shared/chatbot/chatbot.js"></script>
+    <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
 </html>
