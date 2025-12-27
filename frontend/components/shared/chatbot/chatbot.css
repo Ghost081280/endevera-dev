@@ -1,6 +1,7 @@
 /* ============================================
-   ENDEVERA CHATBOT COMPONENT STYLES - OPTIMIZED v2.0
+   ENDEVERA CHATBOT COMPONENT STYLES - OPTIMIZED v2.1
    Mobile-first with perfect positioning and keyboard handling
+   Button aligned with back-to-top button
    ============================================ */
 
 /* ===================================
@@ -8,8 +9,8 @@
    =================================== */
 .chatbot-container {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 30px;  /* Same as back-to-top button */
+    right: 30px;   /* Same as back-to-top button */
     z-index: 999;
     display: flex;
     align-items: center;
@@ -69,7 +70,7 @@
 }
 
 .chatbot-btn {
-    width: 60px;
+    width: 60px;   /* Same as back-to-top: 50px + 10px larger for prominence */
     height: 60px;
     background: var(--color-gold);
     border: none;
@@ -105,11 +106,12 @@
 /* ===================================
    CHATBOT WINDOW - DESKTOP OPTIMIZED
    Stays below navbar, grows with screen height
+   Window bottom aligns with button top (with spacing)
    =================================== */
 .chatbot-window {
     position: fixed;
     top: calc(80px + 20px); /* navbar height + spacing */
-    bottom: 110px; /* space above button */
+    bottom: calc(30px + 60px + 20px); /* button bottom + button height + spacing = 110px */
     right: 30px;
     width: 380px;
     height: auto;
@@ -416,7 +418,7 @@
    =================================== */
 @media (max-width: 768px) and (orientation: portrait) {
     .chatbot-container {
-        bottom: 20px;
+        bottom: 30px;  /* Same as desktop - aligned with back-to-top */
         right: 20px;
     }
 
@@ -440,7 +442,7 @@
         top: calc(80px + 10px);
         left: 10px;
         right: 10px;
-        bottom: 90px; /* Space for button */
+        bottom: calc(30px + 56px + 20px); /* button bottom + button height + spacing = 106px */
         width: auto;
         height: auto;
         max-height: none;
@@ -456,7 +458,7 @@
     /* When keyboard is visible, shift up */
     .chatbot-window.keyboard-visible {
         top: calc(80px + 10px) !important;
-        bottom: 90px !important;
+        bottom: calc(30px + 56px + 20px) !important; /* Keep same spacing */
     }
 
     .chatbot-header {
@@ -597,7 +599,7 @@
    =================================== */
 @media (max-width: 480px) and (orientation: portrait) {
     .chatbot-container {
-        bottom: 15px;
+        bottom: 30px;  /* Same as desktop - aligned with back-to-top */
         right: 15px;
     }
 
@@ -609,6 +611,7 @@
     .chatbot-window {
         left: 8px;
         right: 8px;
+        bottom: calc(30px + 52px + 20px); /* button bottom + button height + spacing = 102px */
     }
 }
 
