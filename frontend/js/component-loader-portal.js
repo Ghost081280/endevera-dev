@@ -10,28 +10,28 @@
     const components = [
         { 
             name: 'nav-member', 
-            html: '../components/nav-member/nav-member.html',
+            html: '../components/portal/nav-member/nav-member.html',
             css: null, // CSS already loaded in page head
             target: 'body', 
             position: 'afterbegin' 
         },
         { 
             name: 'chatbot', 
-            html: '../components/chatbot/chatbot.html',
+            html: '../components/shared/chatbot/chatbot.html',
             css: null,
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'back-to-top', 
-            html: '../components/back-to-top/back-to-top.html',
+            html: '../components/shared/back-to-top/back-to-top.html',
             css: null,
             target: 'body', 
             position: 'beforeend' 
         },
         { 
             name: 'footer-portal', 
-            html: '../components/footer-portal/footer-portal.html',
+            html: '../components/portal/footer-portal/footer-portal.html',
             css: null,
             target: '.portal-page', 
             position: 'beforeend' 
