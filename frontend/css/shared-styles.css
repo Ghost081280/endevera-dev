@@ -227,141 +227,13 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
 }
 
-/* NAVIGATION STYLES */
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: var(--transition-smooth);
-}
-
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
-
-.nav-logo {
-    font-family: var(--font-sans);
-    font-weight: 300;
-    font-size: 22px;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    color: var(--color-white);
-    text-decoration: none;
-    border-left: 3px solid var(--color-gold);
-    padding-left: 16px;
-    transition: var(--transition-fast);
-}
-
-.nav-logo:hover {
-    color: var(--color-gold);
-}
-
-.nav-links {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    list-style: none;
-}
-
-.nav-link {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-white);
-    text-decoration: none;
-    transition: var(--transition-fast);
-    position: relative;
-}
-
-.nav-link:hover {
-    color: var(--color-gold);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--color-gold);
-    transition: var(--transition-fast);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-}
-
-.nav-toggle-bar {
-    width: 28px;
-    height: 2px;
-    background: var(--color-white);
-    transition: var(--transition-fast);
-}
-
-.mobile-nav {
-    display: none;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(20px);
-    padding: 40px 30px;
-    overflow-y: auto;
-    z-index: 999;
-}
-
-.mobile-nav.active {
-    display: block;
-}
-
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    list-style: none;
-}
-
-.mobile-nav-link {
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-white);
-    text-decoration: none;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--color-medium-gray);
-    transition: var(--transition-fast);
-}
-
-.mobile-nav-link:hover {
-    color: var(--color-gold);
-    padding-left: 10px;
-}
+/* ============================================
+   NAVIGATION STYLES REMOVED
+   All nav styles now live in:
+   /frontend/components/public/nav/nav.css
+   This prevents conflicts and ensures the
+   component styles are the source of truth
+   ============================================ */
 
 /* ANIMATIONS */
 @keyframes fadeInUp {
@@ -388,18 +260,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
-    .nav-container {
-        padding: 0 30px;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
     .section {
         padding: 100px 30px;
     }
@@ -410,16 +270,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-    .nav-container {
-        padding: 0 20px;
-        height: 70px;
-    }
-    
-    .nav-logo {
-        font-size: 18px;
-        letter-spacing: 6px;
-    }
-    
     .form-row {
         grid-template-columns: 1fr;
     }
