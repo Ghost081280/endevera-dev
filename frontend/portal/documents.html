@@ -9,39 +9,83 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared-styles.css">
-    <link rel="stylesheet" href="../css/portal.css">
-    <link rel="stylesheet" href="../components/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/chatbot/chatbot.css">
-    <link rel="stylesheet" href="../components/back-to-top/back-to-top.css">
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
+    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
+    <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
+    <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <div class="portal-container">
-            <div class="portal-header">
-                <h1 class="portal-title">Document Library</h1>
-                <p class="portal-subtitle">Access prospectuses, reports, and legal documents</p>
+        <!-- Member Navigation will load here -->
+        
+        <!-- Hero Header -->
+        <section class="portal-hero">
+            <div class="portal-hero-content">
+                <h1 class="portal-hero-title">Documents</h1>
+                <p class="portal-hero-subtitle">Access your investment documents, agreements, and reports</p>
             </div>
+        </section>
 
-            <div style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
-                <button class="category-btn active" data-category="all" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">All Documents</button>
-                <button class="category-btn" data-category="Deal Documents" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">Deal Documents</button>
-                <button class="category-btn" data-category="Reports" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">Reports</button>
-                <button class="category-btn" data-category="Legal" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">Legal</button>
-                <button class="category-btn" data-category="Resources" style="padding: 12px 24px; background: var(--color-dark-gray); border: 1px solid var(--color-medium-gray); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); cursor: pointer; transition: var(--transition-fast);">Resources</button>
+        <!-- Main Content -->
+        <section class="portal-section">
+            <div class="portal-container">
+                
+                <!-- Filters -->
+                <div class="portal-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Category</label>
+                        <select class="filter-select" id="filterCategory">
+                            <option value="all">All Documents</option>
+                            <option value="agreements">Agreements</option>
+                            <option value="reports">Reports</option>
+                            <option value="tax">Tax Documents</option>
+                            <option value="statements">Statements</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Deal</label>
+                        <select class="filter-select" id="filterDeal">
+                            <option value="all">All Deals</option>
+                            <!-- Deal options will be populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Sort By</label>
+                        <select class="filter-select" id="filterSort">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Documents List -->
+                <div class="portal-card">
+                    <div class="portal-card-body">
+                        <div id="documentsContainer">
+                            <!-- Documents will load here -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
-            <div id="documentsContainer"></div>
-        </div>
+        <!-- Footer will load here -->
     </div>
 
+    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
-    <script src="../js/portal.js"></script>
-    <script src="../components/nav-member/nav-member.js"></script>
-    <script src="../js/documents.js"></script>
-    <script src="../components/chatbot/chatbot.js"></script>
-    <script src="../components/back-to-top/back-to-top.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="../components/portal/nav-member/nav-member.js"></script>
+    <script src="js/documents.js"></script>
+    <script src="../components/shared/chatbot/chatbot.js"></script>
+    <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
 </html>
