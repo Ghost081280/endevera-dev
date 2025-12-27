@@ -9,35 +9,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared-styles.css">
-    <link rel="stylesheet" href="../css/portal.css">
-    <link rel="stylesheet" href="../components/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/chatbot/chatbot.css">
-    <link rel="stylesheet" href="../components/back-to-top/back-to-top.css">
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
+    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
+    <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
+    <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <div class="portal-container">
-            <div style="margin-bottom: 30px;">
-                <a href="deals.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--color-light-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.color='var(--color-gold)'" onmouseout="this.style.color='var(--color-light-gray)'">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- Member Navigation will load here -->
+        
+        <!-- Main Content -->
+        <section class="portal-section">
+            <div class="portal-container">
+                
+                <!-- Back Button -->
+                <a href="deals.html" class="back-link">
+                    <svg viewBox="0 0 24 24">
                         <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
                     Back to Opportunities
                 </a>
-            </div>
 
-            <div id="dealDetailContainer"></div>
-        </div>
+                <!-- Deal Detail will load here -->
+                <div id="dealDetailContainer">
+                    <!-- Loading state -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer will load here -->
     </div>
 
+    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
-    <script src="../js/portal.js"></script>
-    <script src="../components/nav-member/nav-member.js"></script>
-    <script src="../js/deal-detail.js"></script>
-    <script src="../components/chatbot/chatbot.js"></script>
-    <script src="../components/back-to-top/back-to-top.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="../components/portal/nav-member/nav-member.js"></script>
+    <script src="js/deal-detail.js"></script>
+    <script src="../components/shared/chatbot/chatbot.js"></script>
+    <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
 </html>
