@@ -74,7 +74,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 40px;
-    padding-right: 100px; /* Space for back-to-top button on desktop */
+    padding-left: 120px !important; /* Space for back-to-top button on LEFT */
     border-top: 1px solid var(--color-medium-gray);
 }
 
@@ -113,7 +113,7 @@
 
 @media (max-width: 768px) {
     .footer {
-        padding-bottom: 180px; /* Extra space for chatbot + back-to-top buttons */
+        padding-bottom: 180px !important; /* Space for chatbot + back-to-top buttons */
     }
 
     .footer-main {
@@ -129,7 +129,7 @@
         flex-direction: column;
         gap: 20px;
         text-align: center;
-        padding-right: 0; /* Remove desktop padding */
+        padding-left: 0 !important; /* Remove desktop padding on mobile */
     }
     
     .footer-legal {
