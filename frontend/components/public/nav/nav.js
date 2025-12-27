@@ -12,7 +12,6 @@ function initNavigation() {
     const navToggle = document.getElementById('navToggle');
     const mobileNav = document.getElementById('mobileNav');
     const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-    const mobileNavClose = document.getElementById('mobileNavClose');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-login, .mobile-nav-cta');
 
     if (!nav) return;
@@ -36,11 +35,6 @@ function initNavigation() {
     // Mobile menu toggle
     if (navToggle) {
         navToggle.addEventListener('click', toggleMobileNav);
-    }
-
-    // Close button
-    if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', closeMobileNav);
     }
 
     // Overlay click
