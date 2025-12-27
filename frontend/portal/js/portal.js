@@ -17,7 +17,7 @@ function checkMemberAuth() {
     
     // If not authenticated or not a member, redirect to login
     if (!isAuthenticated || userRole !== 'investor') {
-        window.location.href = '/endevera-dev/login.html';
+        window.location.href = '/endevera-dev/frontend/portal/login.html';
         return false;
     }
     
@@ -51,7 +51,7 @@ function logoutMember() {
     localStorage.removeItem('endevera_user');
     localStorage.removeItem('endevera_inactivity_timeout'); // Clear inactivity preference
     // Use replace() to prevent back button from accessing cached pages
-    window.location.replace('/endevera-dev/login.html');
+    window.location.replace('/endevera-dev/frontend/portal/login.html');
 }
 
 // ============================================
