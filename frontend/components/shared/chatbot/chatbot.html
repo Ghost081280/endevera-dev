@@ -8,7 +8,7 @@
         </span>
         <span class="chatbot-label-subtitle">AI Assistant (Beta)</span>
     </div>
-    <button class="chatbot-btn" id="chatbotBtn">
+    <button class="chatbot-btn" id="chatbotBtn" aria-label="Open AI Assistant">
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     </button>
 </div>
@@ -16,15 +16,13 @@
 <div class="chatbot-window" id="chatbotWindow">
     <div class="chatbot-header">
         <span class="chatbot-title">Endevera Assistant</span>
-        <button class="chatbot-close" id="chatbotClose">&times;</button>
+        <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">&times;</button>
     </div>
     <div class="chatbot-messages" id="chatMessages">
         <div class="chat-message bot">Hello! I'm the Endevera assistant. How can I help you today? I can answer questions about our services, funding options, or connect you with our team.</div>
     </div>
     <div class="chatbot-input-area">
-        <input type="text" class="chatbot-input" id="chatInput" placeholder="Type your message...">
-        <button class="chatbot-send" id="chatSend">
-            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
+        <textarea class="chatbot-input" id="chatInput" placeholder="Type your message..." rows="1"></textarea>
+        <button class="chatbot-send" id="chatSend" aria-label="Send message">Send</button>
     </div>
 </div>
