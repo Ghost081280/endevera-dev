@@ -8,148 +8,139 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Shared Styles -->
     <link rel="stylesheet" href="../css/shared-styles.css">
-    
-    <!-- Portal Styles -->
-    <link rel="stylesheet" href="../css/portal.css">
-    
-    <!-- Member Navigation -->
-    <link rel="stylesheet" href="../components/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/chatbot/chatbot.css">
-    <link rel="stylesheet" href="../components/back-to-top/back-to-top.css">
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
+    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
+    <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
+    <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
-    <!-- Member Navigation Component (injected by component-loader) -->
-
     <div class="portal-page">
-        <div class="portal-container">
-            <!-- Header -->
-            <div class="portal-header">
-                <p class="portal-welcome" id="welcomeMessage">Loading...</p>
-                <h1 class="portal-title">Investment Dashboard</h1>
-                <p class="portal-subtitle">Overview of your portfolio and investment opportunities</p>
+        <!-- Member Navigation will load here -->
+        
+        <!-- Hero Header -->
+        <section class="portal-hero">
+            <div class="portal-hero-content">
+                <h1 class="portal-hero-title">Welcome back, <span id="userFirstName">Member</span></h1>
+                <p class="portal-hero-subtitle">Your personalized investment dashboard</p>
             </div>
+        </section>
 
-            <!-- Stats Grid -->
-            <div class="portal-stats" id="statsGrid">
-                <!-- Stats loaded by JavaScript -->
-            </div>
-
-            <!-- Content Grid -->
-            <div class="portal-content-grid">
-                <!-- Left Column: Active Deals -->
-                <div>
-                    <div class="portal-card">
-                        <div class="portal-card-header">
-                            <h2 class="portal-card-title">My Active Investments</h2>
-                            <a href="deals.html" class="portal-card-action">View All</a>
+        <!-- Main Content -->
+        <section class="portal-section">
+            <div class="portal-container">
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
                         </div>
-                        <div class="portal-card-body" id="activeDealsContainer">
-                            <!-- Loaded by JavaScript -->
+                        <div class="stat-content">
+                            <div class="stat-label">Total Invested</div>
+                            <div class="stat-value" id="statTotalInvested">$0</div>
                         </div>
                     </div>
 
-                    <div class="portal-card" style="margin-top: 30px;">
-                        <div class="portal-card-header">
-                            <h2 class="portal-card-title">Investment Opportunities</h2>
-                            <a href="deals.html" class="portal-card-action">Browse All</a>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
                         </div>
-                        <div class="portal-card-body" id="availableDealsContainer">
-                            <!-- Loaded by JavaScript -->
+                        <div class="stat-content">
+                            <div class="stat-label">Active Investments</div>
+                            <div class="stat-value" id="statActiveDeals">0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Returns</div>
+                            <div class="stat-value stat-value-positive" id="statTotalReturns">$0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Average ROI</div>
+                            <div class="stat-value stat-value-positive" id="statAverageROI">0%</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Activity & Quick Links -->
-                <div>
+                <!-- Active Investments -->
+                <div class="portal-card">
+                    <div class="portal-card-header">
+                        <h2 class="portal-card-title">Your Active Investments</h2>
+                        <a href="deals.html" class="portal-card-link">View All</a>
+                    </div>
+                    <div class="portal-card-body">
+                        <div id="activeInvestmentsContainer">
+                            <!-- Active investments will load here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Messages Grid -->
+                <div class="portal-grid-2">
+                    <!-- Recent Activity -->
                     <div class="portal-card">
                         <div class="portal-card-header">
                             <h2 class="portal-card-title">Recent Activity</h2>
-                            <a href="messages.html" class="portal-card-action">View All</a>
                         </div>
                         <div class="portal-card-body">
-                            <div class="activity-list" id="activityList">
-                                <!-- Loaded by JavaScript -->
+                            <div id="recentActivityContainer">
+                                <!-- Activity items will load here -->
                             </div>
                         </div>
                     </div>
 
-                    <div class="portal-card" style="margin-top: 30px;">
+                    <!-- Recent Messages -->
+                    <div class="portal-card">
                         <div class="portal-card-header">
-                            <h2 class="portal-card-title">Quick Links</h2>
+                            <h2 class="portal-card-title">Recent Messages</h2>
+                            <a href="messages.html" class="portal-card-link">View All</a>
                         </div>
                         <div class="portal-card-body">
-                            <div style="display: flex; flex-direction: column; gap: 15px;">
-                                <a href="documents.html" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: var(--color-charcoal); border: 1px solid var(--color-medium-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'">
-                                    <div style="width: 40px; height: 40px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                            <polyline points="14 2 14 8 20 8"/>
-                                        </svg>
-                                    </div>
-                                    <div style="flex: 1;">
-                                        <div style="font-size: 14px; font-weight: 500; color: var(--color-white); margin-bottom: 3px;">View Documents</div>
-                                        <div style="font-size: 12px; color: var(--color-light-gray);">Access prospectuses & reports</div>
-                                    </div>
-                                </a>
-
-                                <a href="messages.html" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: var(--color-charcoal); border: 1px solid var(--color-medium-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'">
-                                    <div style="width: 40px; height: 40px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                                        </svg>
-                                    </div>
-                                    <div style="flex: 1;">
-                                        <div style="font-size: 14px; font-weight: 500; color: var(--color-white); margin-bottom: 3px;">Messages</div>
-                                        <div style="font-size: 12px; color: var(--color-light-gray);">View communications</div>
-                                    </div>
-                                </a>
-
-                                <a href="reports.html" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: var(--color-charcoal); border: 1px solid var(--color-medium-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'">
-                                    <div style="width: 40px; height: 40px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                                            <line x1="12" y1="20" x2="12" y2="10"/>
-                                            <line x1="18" y1="20" x2="18" y2="4"/>
-                                            <line x1="6" y1="20" x2="6" y2="16"/>
-                                        </svg>
-                                    </div>
-                                    <div style="flex: 1;">
-                                        <div style="font-size: 14px; font-weight: 500; color: var(--color-white); margin-bottom: 3px;">Portfolio Reports</div>
-                                        <div style="font-size: 12px; color: var(--color-light-gray);">Quarterly performance reviews</div>
-                                    </div>
-                                </a>
-
-                                <a href="profile.html" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: var(--color-charcoal); border: 1px solid var(--color-medium-gray); text-decoration: none; transition: var(--transition-fast);" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-medium-gray)'">
-                                    <div style="width: 40px; height: 40px; background: rgba(201, 162, 39, 0.1); border: 1px solid rgba(201, 162, 39, 0.3); display: flex; align-items: center; justify-content: center;">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.5">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                            <circle cx="12" cy="7" r="4"/>
-                                        </svg>
-                                    </div>
-                                    <div style="flex: 1;">
-                                        <div style="font-size: 14px; font-weight: 500; color: var(--color-white); margin-bottom: 3px;">My Profile</div>
-                                        <div style="font-size: 12px; color: var(--color-light-gray);">Update account settings</div>
-                                    </div>
-                                </a>
+                            <div id="recentMessagesContainer">
+                                <!-- Messages will load here -->
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
+        </section>
+
+        <!-- Footer will load here -->
     </div>
 
     <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
-    <script src="../js/portal.js"></script>
-    <script src="../components/nav-member/nav-member.js"></script>
-    <script src="../js/dashboard.js"></script>
-    <script src="../components/chatbot/chatbot.js"></script>
-    <script src="../components/back-to-top/back-to-top.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="../components/portal/nav-member/nav-member.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="../components/shared/chatbot/chatbot.js"></script>
+    <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
 </html>
