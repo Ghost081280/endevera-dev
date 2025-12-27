@@ -94,10 +94,10 @@ function initNavigation() {
             }
         });
 
-        // Login links
+        // Login links - point to portal login
         const navLogin = document.getElementById('navLogin');
         const mobileNavLogin = document.getElementById('mobileNavLogin');
-        const loginPath = isInPublicFolder ? '../../login.html' : 'login.html';
+        const loginPath = isInPublicFolder ? '../portal/login.html' : 'frontend/portal/login.html';
         if (navLogin) navLogin.href = loginPath;
         if (mobileNavLogin) mobileNavLogin.href = loginPath;
 
