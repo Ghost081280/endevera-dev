@@ -1,6 +1,15 @@
 /* ENDEVERA NAVIGATION COMPONENT STYLES */
 
-/* Navigation Styles */
+/* ============================================
+   Z-INDEX STACK (from bottom to top):
+   - Page content: default (no z-index)
+   - Mobile overlay: 9998
+   - Main nav bar: 9999
+   - Mobile drawer: 10000
+   - Nav toggle: 10001
+   ============================================ */
+
+/* Main Navigation Bar */
 .nav {
     position: fixed;
     top: 0;
@@ -38,6 +47,7 @@
     color: var(--color-gold);
 }
 
+/* Desktop Navigation Links */
 .nav-links {
     display: flex;
     gap: 40px;
@@ -75,6 +85,7 @@
     width: 100%;
 }
 
+/* Call to Action Button */
 .nav-cta {
     font-size: 12px;
     font-weight: 500;
@@ -93,6 +104,7 @@
     box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
 }
 
+/* Login Button */
 .nav-login {
     font-size: 12px;
     font-weight: 500;
@@ -111,7 +123,11 @@
     color: var(--color-gold);
 }
 
-/* Mobile Nav Toggle */
+/* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
+
+/* Mobile Toggle Button */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -120,6 +136,8 @@
     padding: 10px;
     z-index: 10001;
     position: relative;
+    background: none;
+    border: none;
 }
 
 .nav-toggle span {
@@ -141,7 +159,23 @@
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Nav Drawer */
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Navigation Drawer */
 .mobile-nav {
     position: fixed;
     top: 0;
@@ -161,6 +195,7 @@
     transform: translateX(0);
 }
 
+/* Mobile Navigation Links */
 .mobile-nav-links {
     list-style: none;
     display: flex;
@@ -186,6 +221,7 @@
     padding-left: 10px;
 }
 
+/* Mobile CTA Button */
 .mobile-nav-cta {
     display: block;
     text-align: center;
@@ -205,6 +241,7 @@
     background: var(--color-gold-light);
 }
 
+/* Mobile Login Button */
 .mobile-nav-login {
     display: block;
     text-align: center;
@@ -226,22 +263,10 @@
     color: var(--color-gold);
 }
 
-.mobile-nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9998;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
 
-.mobile-nav-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Responsive */
 @media (max-width: 992px) {
     .nav {
         padding: 20px 30px;
