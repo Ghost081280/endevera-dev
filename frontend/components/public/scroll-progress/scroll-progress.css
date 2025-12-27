@@ -5,7 +5,8 @@
     left: 0;
     height: 3px;
     background: var(--color-gold);
-    z-index: 1003;
+    z-index: 10002;  /* Above nav (9999) and mobile drawer (10000) */
     width: 0%;
     transition: width 0.1s ease-out;
+    pointer-events: none;  /* Don't block clicks */
 }
