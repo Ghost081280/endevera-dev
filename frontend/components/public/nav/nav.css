@@ -146,20 +146,14 @@
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: auto;
-    width: 85vw;
-    max-width: 350px;
+    width: 300px;
+    height: 100vh;
     background: var(--color-charcoal);
     z-index: 10001;
-    padding: 100px 30px 40px;
-    padding-top: max(100px, env(safe-area-inset-top));
-    padding-bottom: max(40px, env(safe-area-inset-bottom));
+    padding: 100px 40px 40px;
     transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: var(--transition-smooth);
     border-left: 1px solid var(--color-medium-gray);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav.active {
