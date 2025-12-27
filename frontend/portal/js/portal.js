@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     checkMemberAuth();
 });
 
+// Show chatbot button when components are loaded (no cookie banner in portal)
+document.addEventListener('endevera:components-loaded', function() {
+    if (typeof window.showChatbotButton === 'function') {
+        window.showChatbotButton();
+        console.log('Portal: Chatbot button shown');
+    }
+});
+
 // ============================================
 // AUTHENTICATION
 // ============================================
