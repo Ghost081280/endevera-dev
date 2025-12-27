@@ -3,37 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Reports | Endevera Member Portal</title>
+    <title>Reports | Endevera Member Portal</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='5' y='5' width='90' height='90' fill='none' stroke='%23c9a227' stroke-width='6'/><text x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='500' fill='%23c9a227' text-anchor='middle'>E</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared-styles.css">
-    <link rel="stylesheet" href="../css/portal.css">
-    <link rel="stylesheet" href="../components/nav-member/nav-member.css">
-    <link rel="stylesheet" href="../components/chatbot/chatbot.css">
-    <link rel="stylesheet" href="../components/back-to-top/back-to-top.css">
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="../components/portal/nav-member/nav-member.css">
+    <link rel="stylesheet" href="../components/portal/footer-portal/footer-portal.css">
+    <link rel="stylesheet" href="../components/shared/chatbot/chatbot.css">
+    <link rel="stylesheet" href="../components/shared/back-to-top/back-to-top.css">
 </head>
 <body data-page-type="portal">
 
     <div class="portal-page">
-        <div class="portal-container">
-            <div class="portal-header">
-                <h1 class="portal-title">Portfolio Reports</h1>
-                <p class="portal-subtitle">Quarterly performance reviews and market analysis</p>
+        <!-- Member Navigation will load here -->
+        
+        <!-- Hero Header -->
+        <section class="portal-hero">
+            <div class="portal-hero-content">
+                <h1 class="portal-hero-title">Performance Reports</h1>
+                <p class="portal-hero-subtitle">Track your investment performance and portfolio insights</p>
             </div>
+        </section>
 
-            <div id="reportsContainer"></div>
-        </div>
+        <!-- Main Content -->
+        <section class="portal-section">
+            <div class="portal-container">
+                
+                <!-- Filters -->
+                <div class="portal-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Report Type</label>
+                        <select class="filter-select" id="filterType">
+                            <option value="all">All Reports</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="annual">Annual</option>
+                            <option value="deal-specific">Deal Specific</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Year</label>
+                        <select class="filter-select" id="filterYear">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Sort By</label>
+                        <select class="filter-select" id="filterSort">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Reports Grid -->
+                <div class="reports-grid" id="reportsGrid">
+                    <!-- Report cards will load here -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer will load here -->
     </div>
 
+    <!-- Scripts -->
     <script src="../js/shared-script.js"></script>
     <script src="../js/component-loader-portal.js"></script>
     <script src="../js/mock-data.js"></script>
-    <script src="../js/portal.js"></script>
-    <script src="../components/nav-member/nav-member.js"></script>
-    <script src="../js/reports.js"></script>
-    <script src="../components/chatbot/chatbot.js"></script>
-    <script src="../components/back-to-top/back-to-top.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="../components/portal/nav-member/nav-member.js"></script>
+    <script src="js/reports.js"></script>
+    <script src="../components/shared/chatbot/chatbot.js"></script>
+    <script src="../components/shared/back-to-top/back-to-top.js"></script>
 </body>
 </html>
