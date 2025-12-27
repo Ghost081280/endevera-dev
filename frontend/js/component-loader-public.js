@@ -75,15 +75,15 @@
 
     // Load all components
     async function loadComponents() {
-        console.log('🔧 Component Loader starting...');
-        console.log('📍 Path detection:', { path, inPublicFolder, basePrefix });
+        console.log('Component Loader starting...');
+        console.log('Path detection:', { path, inPublicFolder, basePrefix });
         
         for (const component of components) {
             try {
                 // Load CSS first if it exists
                 if (component.css) {
                     await loadCSS(component.css);
-                    console.log(`✓ Loaded CSS: ${component.name}`);
+                    console.log(`Loaded CSS: ${component.name}`);
                 }
 
                 // Then load HTML
@@ -97,14 +97,14 @@
                 
                 if (target) {
                     target.insertAdjacentHTML(component.position, html);
-                    console.log(`✓ Loaded component: ${component.name}`);
+                    console.log(`Loaded component: ${component.name}`);
                 } else {
-                    console.error(`✗ Target not found for ${component.name}: ${component.target}`);
+                    console.error(`Target not found for ${component.name}: ${component.target}`);
                 }
                 
                 loadedCount++;
             } catch (error) {
-                console.error(`✗ Error loading ${component.name}:`, error);
+                console.error(`Error loading ${component.name}:`, error);
                 loadedCount++;
             }
         }
@@ -112,7 +112,7 @@
         // Once all components are loaded, dispatch event
         if (loadedCount === totalComponents) {
             document.dispatchEvent(new CustomEvent('endevera:components-loaded'));
-            console.log('✅ All public components loaded');
+            console.log('All public components loaded');
         }
     }
 
