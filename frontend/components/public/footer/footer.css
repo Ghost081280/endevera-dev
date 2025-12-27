@@ -74,6 +74,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 40px;
+    padding-right: 100px; /* Space for back-to-top button on desktop */
     border-top: 1px solid var(--color-medium-gray);
 }
 
@@ -85,7 +86,6 @@
 .footer-legal {
     display: flex;
     gap: 30px;
-    margin-right: 100px;
 }
 
 .footer-legal a {
@@ -112,6 +112,10 @@
 }
 
 @media (max-width: 768px) {
+    .footer {
+        padding-bottom: 180px; /* Extra space for chatbot + back-to-top buttons */
+    }
+
     .footer-main {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -125,10 +129,12 @@
         flex-direction: column;
         gap: 20px;
         text-align: center;
+        padding-right: 0; /* Remove desktop padding */
     }
     
     .footer-legal {
-        margin-right: 0;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
