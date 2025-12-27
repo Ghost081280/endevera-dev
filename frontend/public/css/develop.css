@@ -223,18 +223,6 @@
     color: var(--color-light-gray);
 }
 
-/* ANIMATIONS */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* RESPONSIVE */
 @media (max-width: 992px) {
     .services-grid {
